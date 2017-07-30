@@ -16,7 +16,7 @@ This teaching kit contains a complete exercise book about many discrete optimisa
     * flows
     * matchings
     
-It is distributed as a [LyX](http://www.lyx.org/) file (using branches to distinguish the exercises, hints for the students, and complete worked-out solutions), with figures (in the `book` folder) and Julia source code (in the `examples_julia` folder).
+It is distributed as a [LyX](http://www.lyx.org/) file (using branches to distinguish the exercises, hints for the students, and complete worked-out solutions), with figures (in the `book` folder) and Julia source code (in the `examples_julia` folder). [Have a look at the current version!](https://github.com/dourouc05/OptimisationTeachingKit/releases)
 
 ## How to contribute? 
 
