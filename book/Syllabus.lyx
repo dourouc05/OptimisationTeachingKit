@@ -1059,35 +1059,6 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-For each exercise session, because they're too long: 
-\end_layout
-
-\begin_layout Plain Layout
-R2: remove 2.1.5, maybe 2.1.4.
- 
-\end_layout
-
-\begin_layout Plain Layout
-R3: remove 2.4.3 (move to R4, to introduce B&B), probably also 2.4.1 (replaced
- by 2.1.4 from the week before).
- Add 2.3.4? 
-\end_layout
-
-\begin_layout Plain Layout
-Cuts: replace 5.1.1§5 by §4.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section*
 Typographical conventions
 \end_layout
@@ -13566,7 +13537,7 @@ In this case, when the node is taken (
 \end_layout
 
 \begin_layout Subsection
-Graph colouring 
+Graph colouring * 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Modelling-Graph-Graph-colouring"
@@ -13599,7 +13570,17 @@ graph-colouring problem
  Formulate as a mixed-integer linear program the problem of minimum graph
  colouring (i.e.
  colouring a graph with as few colours as possible).
- 
+\end_layout
+
+\begin_layout Standard
+How does your current formulation deal with symmetry, i.e., starting from
+ one optimal solution, is it possible to build another optimal solution
+ by performing systematic operations like renumbering the colours? Propose
+ several new constraints to break this symmetry.
+\end_layout
+
+\begin_layout Standard
+Propose other kinds of constraints to strengthen the formulation.
 \end_layout
 
 \begin_layout Standard
@@ -13635,7 +13616,7 @@ inverted 0
 status open
 
 \begin_layout Subsubsection
-Solution
+Model
 \end_layout
 
 \begin_layout Standard
@@ -13705,6 +13686,64 @@ Two adjacent vertices cannot have the same colour:
 \begin_inset Formula 
 \[
 x_{i,c}+x_{j,c}\leq y_{c},\qquad\forall c\in\left[1,\left|V\right|\right],\forall\left(i,j\right)\in E.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Symmetry breaking
+\end_layout
+
+\begin_layout Standard
+Sources of symmetry and corresponding symmetry-breaking constraints:
+\end_layout
+
+\begin_layout Itemize
+a colour 
+\begin_inset Formula $c+1$
+\end_inset
+
+ can only be used if all colours before it are used: 
+\begin_inset Formula 
+\[
+y_{c+1}\leq y_{c},\qquad\forall c\in\left[1,\left|V\right|-1\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+the first colour has the largest number of nodes assigned to it; the next
+ colours have a decreasing number of nodes: 
+\begin_inset Formula 
+\[
+\sum_{i=1}^{\left|V\right|}x_{i,c}\geq\sum_{i=1}^{\left|V\right|}x_{i,c+1},\qquad\forall c\in\left[1,\left|V\right|-1\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Formulation strengthening
+\end_layout
+
+\begin_layout Standard
+The constraint per edge can be rewritten for any clique.
+ In particular, it is sufficient to write it for all maximum cliques 
+\begin_inset Formula $C\!\left(G\right)$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\sum_{i\in\kappa}x_{i,c}\leq y_{c},\qquad\forall c\in\left[1,\left|V\right|\right],\forall\kappa\in C\!\left(G\right).
 \]
 
 \end_inset
