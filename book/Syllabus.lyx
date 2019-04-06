@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -27,6 +27,8 @@ theorems-sec-bytype
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -56,6 +58,7 @@ theorems-sec-bytype
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \branch TA
 \selected 0
 \filename_suffix 1
@@ -66,16 +69,6 @@ theorems-sec-bytype
 \filename_suffix 0
 \color #faf0e6
 \end_branch
-\branch ULiège
-\selected 1
-\filename_suffix 0
-\color #ffc5c1
-\end_branch
-\branch Non-ULiège
-\selected 0
-\filename_suffix 0
-\color #ffc5c1
-\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -84,7 +77,10 @@ theorems-sec-bytype
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
@@ -104,6 +100,7 @@ Discrete Optimisation: Exercises Book
 
 
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Standard
@@ -114,6 +111,7 @@ With solutions
 
 
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Standard
@@ -129,10 +127,6 @@ With complete solutions
 Thibaut Cuvelier
 \end_layout
 
-\begin_layout Date
-2016-2017
-\end_layout
-
 \begin_layout Section*
 Version history
 \end_layout
@@ -140,7 +134,7 @@ Version history
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="17" columns="3">
+<lyxtabular version="3" rows="18" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="1.5cm">
 <column alignment="center" valignment="top" width="2.5cm">
@@ -708,7 +702,7 @@ reference "subsec:Cuts-Exam-September-2016"
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Dynamic-programming-Lot-sizing-January-2016"
+reference "subsec:Dynamic-programming-Lot-sizing-Other"
 
 \end_inset
 
@@ -881,7 +875,7 @@ reference "subsec:Formulation-comparison-General-problems-Lot-sizing"
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Flows-Solve-feasible-flows-Transformation-exam-january-2017"
+reference "subsec:Flows-Solve-feasible-flows-Transformation-other"
 
 \end_inset
 
@@ -962,7 +956,43 @@ reference "subsec:Dynamic-programming-Knapsack-Exam-Sep-2016"
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Dynamic-programming-Knapsack-Exam-Jan-2015"
+reference "subsec:Dynamic-programming-Knapsack-Dual"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.11.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 July 2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Added exercise 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Graph-Graph-colouring"
 
 \end_inset
 
@@ -977,7 +1007,7 @@ reference "subsec:Dynamic-programming-Knapsack-Exam-Jan-2015"
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.11.1
+0.11.2
 \end_layout
 
 \end_inset
@@ -986,7 +1016,7 @@ reference "subsec:Dynamic-programming-Knapsack-Exam-Jan-2015"
 \begin_inset Text
 
 \begin_layout Plain Layout
-3 July 2017
+6 April 2019
 \end_layout
 
 \end_inset
@@ -995,14 +1025,28 @@ reference "subsec:Dynamic-programming-Knapsack-Exam-Jan-2015"
 \begin_inset Text
 
 \begin_layout Plain Layout
-Added exercise 
+Reworked exercises 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Modelling-Graph-Graph-colouring"
+reference "sec:Modelling-Boolean-algebra"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Graph-Graph-colouring"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+.
+ Remove ULiège specificities
 \end_layout
 
 \end_inset
@@ -1070,638 +1114,6 @@ Within a category, the most difficult exercises are indicated with a star
  
 \end_layout
 
-\begin_layout Section*
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Section*
-Exercises per session (2016-2017)
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="12" columns="3">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="1.5cm">
-<column alignment="center" valignment="top" width="2.5cm">
-<column alignment="center" valignment="top" width="8cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Exercise session
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Date
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Exercises
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-23 September 2016
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Julia"
-
-\end_inset
-
- (all)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-30 September 2016
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Warm-up-Hospital-discrete-facility-location"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Warm-up-Nurse-scheduling"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Warm-up-Team-making"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Warm-up-Steel-mill-planning-lot-sizing"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Warm-up-Ground-meat-preparation"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-7 October 2016
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Boolean-algebra-Negation-(NOT)"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Boolean-algebra-Disjunction-(OR)"
-
-\end_inset
-
- (§1), 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Boolean-algebra-Conjunction-(AND)"
-
-\end_inset
-
- (§1), 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Boolean-algebra-Implication"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Boolean-algebra-If-then"
-
-\end_inset
-
-; 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Thresholds-Binary-activation"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Thresholds-Semicontinuous-variable"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-Thresholds-Threshold-detection"
-
-\end_inset
-
-; 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-More-Volleyball-teams"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Modelling-More-Attic-problem"
-
-\end_inset
-
- (§1, §3)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-14 October 2016
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Branch-and-bound-Behaviour-Geometric-solving"
-
-\end_inset
-
- (§2), 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Branch-and-bound-Behaviour-Tree-construction"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Branch-and-bound-Behaviour-Worst-case"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-21 October 2016
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Formulation-comparison-General-problems-Discrete-facility-location"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Formulation-comparison-General-problems-Exams-schedule"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Comparison-Graph-TSP"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-28 October 2016
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Cuts-Lazy-constraints-TSP"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4 November 2016
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Constraint-programming-Sudoku"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Constraint-programming-Magic-square"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Constraint-programming-N-queens"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-18 November 2016
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Cuts-Generic-Valid-inequalities"
-
-\end_inset
-
-(§1, §2, §3, §5), 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Cuts-Generic-Cutting-planes"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Cuts-Knapsack-covers-Basic"
-
-\end_inset
-
- (§1, §4)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-9
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-25 November 2016
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Cuts-Knapsack-covers-Lifting"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Cuts-Lazy-constraints-PCTSP"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-10
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2 December
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Flow-problems-Modelling-Village-fair"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Flow-problems-Modelling-Nurses-scheduling"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-11
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-16 December
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Flows-Solve-maximum-flows-Shortest-augmenting-path"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Flows-Solve-feasible-flows-Transformation"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Flows-Solve-minimum-cut-Max-flow-1"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Dynamic-programming-Lot-sizing-Basic"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
 Julia 
 \begin_inset CommandInset label
@@ -1760,6 +1172,7 @@ Useful links:
 LatexCommand href
 name "Julia website"
 target "http://julialang.org/"
+literal "false"
 
 \end_inset
 
@@ -1771,6 +1184,7 @@ target "http://julialang.org/"
 LatexCommand href
 name "Julia documentation"
 target "http://docs.julialang.org/en/release-0.4/"
+literal "false"
 
 \end_inset
 
@@ -1782,6 +1196,7 @@ target "http://docs.julialang.org/en/release-0.4/"
 LatexCommand href
 name "Plots.jl website and documentation"
 target "https://juliaplots.github.io/"
+literal "false"
 
 \end_inset
 
@@ -1793,6 +1208,7 @@ target "https://juliaplots.github.io/"
 LatexCommand href
 name "JuliaOpt website"
 target "http://www.juliaopt.org/"
+literal "false"
 
 \end_inset
 
@@ -1804,6 +1220,7 @@ target "http://www.juliaopt.org/"
 LatexCommand href
 name "JuMP documentation"
 target "http://jump.readthedocs.io/en/latest/"
+literal "false"
 
 \end_inset
 
@@ -1815,6 +1232,7 @@ target "http://jump.readthedocs.io/en/latest/"
 LatexCommand href
 name "a tutorial"
 target "http://www.montefiore.ulg.ac.be/~tcuvelier/files/math0462-2016/R1_julia.pdf"
+literal "false"
 
 \end_inset
 
@@ -1850,6 +1268,7 @@ a
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -1865,6 +1284,7 @@ a = [[3 6 8]; [7 9 2]; [-1 0 4]]
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -1896,6 +1316,7 @@ Retrieve the first element of the matrix, i.e.
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -1911,6 +1332,7 @@ a[1, 1]
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -1997,6 +1419,7 @@ a
 \end_deeper
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2045,6 +1468,7 @@ vec
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2121,6 +1545,7 @@ a
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2140,6 +1565,7 @@ a[[1, 3], 2]
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2185,6 +1611,7 @@ Do the same with a step of 12.
 \end_deeper
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2203,6 +1630,7 @@ collect
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2259,6 +1687,7 @@ Create a vector containing three ones and another one containing three zeroes.
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2281,6 +1710,7 @@ zeros
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2325,6 +1755,7 @@ Create a
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2351,6 +1782,7 @@ eye
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2382,6 +1814,7 @@ Create a vector of 50 equally-spaced values between 6 and 52.
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2400,6 +1833,7 @@ linspace
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2448,6 +1882,7 @@ c
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2465,6 +1900,7 @@ dot
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2504,6 +1940,7 @@ c
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2519,6 +1956,7 @@ status open
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2572,6 +2010,7 @@ a
 \end_deeper
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2602,6 +2041,7 @@ Use the matrix operators
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2668,6 +2108,7 @@ a
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2686,6 +2127,7 @@ Use the
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2735,6 +2177,7 @@ a
 \end_deeper
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2752,6 +2195,7 @@ size
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2832,6 +2276,7 @@ a
 \end_deeper
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2853,6 +2298,7 @@ find
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -2932,6 +2378,7 @@ factorial(2)
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -2955,6 +2402,7 @@ for
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -3036,6 +2484,7 @@ factorial
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -3059,6 +2508,7 @@ if
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -3188,6 +2638,7 @@ if
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -3302,6 +2753,7 @@ f_{1}\!\left(x\right)=\sin x,\qquad f_{2}\!\left(x\right)=\sin x^{2}.
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -3320,6 +2772,7 @@ plot
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -3368,6 +2821,7 @@ Compare the two previous functions on the same graph.
 
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -3390,6 +2844,7 @@ plot
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -3499,6 +2954,7 @@ What is the value of
 \end_deeper
 \begin_layout Exercise
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -3594,6 +3050,7 @@ getvalue
 
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -3747,6 +3204,7 @@ What is the value of
 \end_deeper
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -3913,6 +3371,7 @@ Solve it.
 \end_deeper
 \begin_layout Exercise
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Solution*
@@ -4327,6 +3786,7 @@ The government goal is to minimise their total costs (i.e.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -4807,6 +4267,7 @@ A nurse working day.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -5029,6 +4490,7 @@ eger linear program.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -5911,6 +5373,7 @@ Reformulate the planning problem when adding the following constraint: the
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -6234,6 +5697,7 @@ Formulate this problem as a mixed-integer linear program.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -6411,17 +5875,7 @@ Consider the butchers must prepare multiple ground meat recipes (each of
 \end_layout
 
 \begin_layout Subsection
-Unit commitment 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam September 2016)
-\end_layout
-
-\end_inset
-
- 
+Unit commitment  
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Modelling-Warm-up-Unit-commitment"
@@ -6497,6 +5951,7 @@ Formulate the problem of minimizing the costs of the producer while satisfying
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -6763,6 +6218,7 @@ Model this problem as a mixed integer linear program.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -6899,7 +6355,7 @@ name "subsec:Modelling-Boolean-algebra-Negation-(NOT)"
 
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Standard
 How to model a Boolean NOT, i.e.
  
 \begin_inset Formula $\lnot a$
@@ -6909,11 +6365,30 @@ How to model a Boolean NOT, i.e.
 \begin_inset Formula $a$
 \end_inset
 
- is a binary variable? 
+ is a binary variable?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Use the expression 
+\begin_inset Formula $1-a$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -7106,9 +6581,42 @@ How to model a binary Boolean OR, i.e.
 \begin_inset Formula $b$
 \end_inset
 
-? 
+?
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Introduce a new variable 
+\begin_inset Formula $z=a\lor b$
+\end_inset
+
+.
+ Use the constraints 
+\begin_inset Formula $z\geq a$
+\end_inset
+
+, 
+\begin_inset Formula $z\geq b$
+\end_inset
+
+, and 
+\begin_inset Formula $z\leq a+b$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 How to model a ternary Boolean OR, i.e.
  the relationship 
@@ -7127,24 +6635,86 @@ How to model a ternary Boolean OR, i.e.
 \begin_inset Formula $c$
 \end_inset
 
-? 
+?
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Introduce a new variable 
+\begin_inset Formula $z=a\lor b\lor c$
+\end_inset
+
+.
+ Use the constraints 
+\begin_inset Formula $z\geq a$
+\end_inset
+
+, 
+\begin_inset Formula $z\geq b$
+\end_inset
+
+, 
+\begin_inset Formula $z\geq c$
+\end_inset
+
+, and 
+\begin_inset Formula $z\leq a+b+c$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 * How to model compactly a 
 \begin_inset Formula $n$
 \end_inset
 
 -ary Boolean OR (i.e.
- use as few supplementary variables and constraints as possible)? 
+ use as few supplementary variables and constraints as possible)?
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Use the constraints 
+\begin_inset Formula $0\leq\left|\mathcal{I}\right|\,z-\left(\sum_{i\in\mathcal{I}}x_{i}\right)\leq\left|\mathcal{I}\right|-1$
+\end_inset
+
+, with 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ the set of variables participating in the OR.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
-Binary 
+Binary
 \end_layout
 
 \begin_layout Standard
@@ -7455,7 +7025,7 @@ Ternary
 Quite directly, 
 \begin_inset Formula 
 \[
-z\geq a,\qquad z\geq b,\qquad z\geq c.
+z\geq a,\qquad z\geq b,\qquad z\geq c,\qquad z\leq a+b+c.
 \]
 
 \end_inset
@@ -7464,10 +7034,22 @@ This formulation can be extended to the
 \begin_inset Formula $n$
 \end_inset
 
--ary case quite directly: 
+-ary case quite directly, with the variables in 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+: 
 \begin_inset Formula 
 \[
 z\geq x_{i},\qquad\forall i\in\mathcal{I}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+z\leq\sum_{i\in\mathcal{I}}x_{i}.
 \]
 
 \end_inset
@@ -8459,9 +8041,42 @@ How to model a binary Boolean AND, i.e.
 \begin_inset Formula $b$
 \end_inset
 
-? 
+?
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Introduce a new variable 
+\begin_inset Formula $z=a\land b$
+\end_inset
+
+.
+ Use the constraints 
+\begin_inset Formula $z\leq a$
+\end_inset
+
+, 
+\begin_inset Formula $z\leq b$
+\end_inset
+
+, and 
+\begin_inset Formula $z\geq a+b-1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 How to model a ternary Boolean AND, i.e.
  the relationship 
@@ -8480,24 +8095,105 @@ How to model a ternary Boolean AND, i.e.
 \begin_inset Formula $c$
 \end_inset
 
-? 
+?
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Introduce two new variables 
+\begin_inset Formula $z=a\land b$
+\end_inset
+
+ and 
+\begin_inset Formula $z^{\prime}=a\land b\land c=z\land c$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 * How to model a 
 \begin_inset Formula $n$
 \end_inset
 
--ary Boolean AND? 
+-ary Boolean AND?
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Use the constraints 
+\begin_inset Formula $z\leq x_{i}$
+\end_inset
+
+ for each variable 
+\begin_inset Formula $i\in\mathcal{I}$
+\end_inset
+
+ participating in the AND, and 
+\begin_inset Formula 
+\[
+z\geq\left(\sum_{i\in\mathcal{I}}x_{i}\right)-\left(\left|\mathcal{I}-1\right|\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 ** How to make it more compact (i.e.
- use as few supplementary variables and constraints as possible)? 
+ use as few supplementary variables and constraints as possible)?
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Use the constraint
+\begin_inset Formula 
+\[
+0\leq\left(\sum_{i\in\mathcal{I}}x_{i}\right)-\left|\mathcal{I}\right|\,z\leq\left|\mathcal{I}\right|-1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -9873,11 +9569,29 @@ How to model the fact than an implication
 \begin_inset Formula $b$
 \end_inset
 
- are binary variables? 
+ are binary variables?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+\begin_inset Formula $a\leq b$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -9979,7 +9693,33 @@ How to model the following expression, where
 \end_layout
 
 \begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+\begin_inset Formula $x\leq100+M\,\left(1-y\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $x\geq100-M\,\left(1-y\right)$
+\end_inset
+
+, with 
+\begin_inset Formula $M=100$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -10250,6 +9990,7 @@ How to model the constraint that the variable
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -10363,6 +10104,7 @@ How to model the constraint that the variable
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -10485,6 +10227,7 @@ How does your solution behave for
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -11295,6 +11038,7 @@ name "tab:Modelling-thresholds-PWL"
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -11478,6 +11222,7 @@ variance
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -11933,6 +11678,7 @@ Write a mixed-integer linear optimisation program that computes the greatest
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -12101,6 +11847,7 @@ To help him solve such problems quickly, your notary would like an automated
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -12601,6 +12348,7 @@ See
 LatexCommand href
 name "Combining Problem Structure with Basis Reduction to Solve a Class of Hard Integer Programs"
 target "http://www.jstor.org/stable/3690447"
+literal "false"
 
 \end_inset
 
@@ -12609,6 +12357,7 @@ target "http://www.jstor.org/stable/3690447"
 LatexCommand href
 name "Solving a System of Linear Diophantine Equations with Lower and Upper Bounds on the Variables "
 target "http://www.jstor.org/stable/3690447"
+literal "false"
 
 \end_inset
 
@@ -12657,16 +12406,6 @@ To go further, the system of diophantine equations can be rewritten with
 
 \begin_layout Subsection
 Truck transportation 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2014)
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Modelling-More-Trucks"
@@ -12723,16 +12462,6 @@ Truck drivers are divided in teams that stay together on the road.
 
 \begin_layout Subsection
 Tennis championship 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam August 2013)
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Modelling-More-Tennis"
@@ -12802,16 +12531,6 @@ Each player is associated with a strength
 
 \begin_layout Subsection
 Exam schedule 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2013)
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Modelling-More-Exams"
@@ -12872,16 +12591,6 @@ r linear program.
 
 \begin_layout Subsection
 Schmurf game 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam August 2014)
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Modelling-More-Schmurf-game"
@@ -13229,17 +12938,7 @@ reference "subsec:Modelling-More-Schmurf-game"
 \end_layout
 
 \begin_layout Subsection
-Storing files on flash drives 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2015)
-\end_layout
-
-\end_inset
-
- 
+Storing files on flash drives  
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Modelling-More-Flash-drives"
@@ -13554,6 +13253,7 @@ Two main formulations are possible: one eliminates subtours and is called
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -13618,6 +13318,7 @@ Let
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -13647,6 +13348,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -13902,6 +13604,7 @@ graph-colouring problem
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -13928,7 +13631,8 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch TA
-status collapsed
+inverted 0
+status open
 
 \begin_layout Subsubsection
 Solution
@@ -14044,6 +13748,7 @@ Ajouter un exercice où on a plusieurs nœuds que l'on continue à explorer
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Standard
@@ -14278,6 +13983,7 @@ solve(m)
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -14309,6 +14015,7 @@ For the first problem, the solution is
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -14728,6 +14435,7 @@ name "fig:Branch-and-bound-Behaviour-Tree-construction"
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -14755,6 +14463,7 @@ The upper bound is
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -15417,6 +15126,7 @@ Give an example where the branch-and-bound algorithm performs a large number
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -15433,6 +15143,7 @@ A worst case can be found when having two integer variables and a linear
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -16050,16 +15761,6 @@ Step 10.
 
 \begin_layout Subsection
 Tree interpretation 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam August 2014)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Branch-and-bound-Behaviour-Tree-interpretation-august-2014"
@@ -16145,16 +15846,6 @@ name "fig:Branch-and-bound-Behaviour-Tree-interpretation-august-2014"
 
 \begin_layout Subsection
 Tree interpretation 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam August 2014)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Branch-and-bound-Behaviour-Tree-interpretation-january-2017"
@@ -16247,16 +15938,6 @@ Implementation choices
 
 \begin_layout Subsection
 Pruning 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2014)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Branch-and-bound-Implementation-Pruning"
@@ -16273,6 +15954,7 @@ In the branch-and-bound algorithm, give the different opportunities to prune
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -16287,6 +15969,7 @@ By bound, by optimality, by infeasibility.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -16350,6 +16033,7 @@ Explain two simple node selection strategies that can be used to explore
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -16365,6 +16049,7 @@ Depth-first (improves primal bound) or breadth-first search (improves dual
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -16884,6 +16569,7 @@ Implement both formulations and compare the solving times when increasing
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -16922,6 +16608,7 @@ The first formulation is strictly stronger than the second one.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -17213,16 +16900,6 @@ The first formulation is thus tighter, as its feasible area is smaller.
 
 \begin_layout Subsection
 Exams schedule 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2016)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Formulation-comparison-General-problems-Exams-schedule"
@@ -17306,6 +16983,7 @@ Determine between (a) and (b) which one is the best formulation and prove
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -17320,6 +16998,7 @@ The first formulation is strictly stronger than the second one.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -17435,16 +17114,6 @@ Intuition behind this? The two constraints are
 
 \begin_layout Subsection
 Courses schedule 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam September 2016)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Formulation-comparison-General-problems-Courses-schedule"
@@ -17546,6 +17215,7 @@ Determine between (a) and (b) which one is the best formulation and prove
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -17560,6 +17230,7 @@ The first formulation is strictly stronger than the second one.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -17584,17 +17255,7 @@ reference "subsec:Formulation-comparison-General-problems-Exams-schedule"
 \end_layout
 
 \begin_layout Subsection
-Lot sizing 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2017)
-\end_layout
-
-\end_inset
-
- 
+Lot sizing  
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Formulation-comparison-General-problems-Lot-sizing"
@@ -17962,6 +17623,7 @@ Implement both formulations and compare the solving times when increasing
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -18024,6 +17686,7 @@ The following relationship holds:
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -18890,6 +18553,7 @@ name "sec:Cuts-Generic"
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Remark*
@@ -18961,6 +18625,7 @@ Find a valid inequality for the following sets:
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -18998,6 +18663,7 @@ y+3\,z-s\leq10\qquad\text{and}\qquad\frac{1}{3}\,y+\frac{5}{3}\,z+\frac{1}{3}\,s
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -19673,6 +19339,7 @@ x^{*}=\left(0,\frac{25}{6},0,0,0\right).
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -19689,6 +19356,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -19852,6 +19520,7 @@ Find valid covers for the following
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -19890,6 +19559,7 @@ In order:
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -20244,6 +19914,7 @@ Lift the inequality for
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -20285,6 +19956,7 @@ After one iteration of lifting (on
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -21940,6 +21612,7 @@ Multiple paths are possible, getting different intermediate results.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -22221,26 +21894,7 @@ x_{3}+x_{4}+x_{5}\leq2.
 \end_layout
 
 \begin_layout Section
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-Exam
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Branch Non-ULiège
-status collapsed
-
-\begin_layout Standard
-Supplementary
-\end_layout
-
-\end_inset
-
- exercises 
+Supplementary exercises 
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Cuts-Exam"
@@ -22251,26 +21905,7 @@ name "sec:Cuts-Exam"
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-Exam January 2013
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Branch Non-ULiège
-status collapsed
-
-\begin_layout Standard
-Set 1
-\end_layout
-
-\end_inset
-
- 
+Set 1 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Cuts-Exam-January-2013"
@@ -22327,26 +21962,7 @@ For each of the following sets, give a valid inequality for the discrete
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-Exam August 2013
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Branch Non-ULiège
-status collapsed
-
-\begin_layout Standard
-Set 2
-\end_layout
-
-\end_inset
-
- 
+Set 2 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Cuts-Exam-August-2013"
@@ -22410,26 +22026,7 @@ Show that the new inequality in a facet of
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-Exam January 2014
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Branch Non-ULiège
-status collapsed
-
-\begin_layout Standard
-Set 3
-\end_layout
-
-\end_inset
-
- 
+Set 3 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Cuts-Exam-January-2014"
@@ -22489,26 +22086,7 @@ Find a valid inequality for
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-Exam August 2014
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Branch Non-ULiège
-status collapsed
-
-\begin_layout Standard
-Set 4
-\end_layout
-
-\end_inset
-
- 
+Set 4 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Cuts-Exam-August-2014"
@@ -22561,26 +22139,7 @@ For each discrete set and each point, find a valid inequality that cuts
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-Exams January and August 2015
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Branch Non-ULiège
-status collapsed
-
-\begin_layout Standard
-Set 5
-\end_layout
-
-\end_inset
-
- 
+Set 5 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Cuts-Exams-January-and-August-2015"
@@ -22646,26 +22205,7 @@ If possible, provide a facet-defining inequality of
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-Exam September 2016
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Branch Non-ULiège
-status collapsed
-
-\begin_layout Standard
-Set 6
-\end_layout
-
-\end_inset
-
- 
+Set 6 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Cuts-Exam-September-2016"
@@ -22801,6 +22341,7 @@ Implement the TSP with lazy constraints.
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -22828,6 +22369,7 @@ Consider adding lazily the subtour elimination, based on a subtour you find
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -22935,6 +22477,7 @@ f_{j}=\begin{pmatrix}2 & 4 & 1 & 3 & 7 & 1 & 7\end{pmatrix}.
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -22963,6 +22506,7 @@ Consider adding lazily the subtour elimination, based on a subtour you find
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -23595,16 +23139,6 @@ where the costs are given by the matrices:
 
 \begin_layout Subsection
 * Generalised assignment 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2014)
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Lagrangian-Generalised-assignment-Jan-2014"
@@ -23789,6 +23323,7 @@ Solution: see Wolsey, Exercise 10.1, p.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -23865,6 +23400,7 @@ Solve it by dynamic programming.
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -23891,6 +23427,7 @@ The optimal solution is to take the second and third objects.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -24577,123 +24114,12 @@ By reversing the dynamic equation, both objects
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Branch ULiège
-status open
-
 \begin_layout Subsection
-Exam knapsack (January 2013) 
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Dynamic-programming-Knapsack-Exam-Jan-2013"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Solve the following knapsack.
- 
-\begin_inset Formula 
-\[
-\begin{array}{ccc}
-\max & 4\,w+5\,x+3\,y+z\\
-\text{s.t.} & 5\,w+6\,x+4\,y+2\,z\leq14,\\
- & w\in\mathcal{B},x\in\mathcal{B},\\
- & y\in\mathbb{Z}^{+},z\in\mathbb{Z}^{+}.
-\end{array}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Exam knapsack (August 2015) 
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Dynamic-programming-Knapsack-Exam-Aug-2015"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Solve the following knapsack.
- 
-\begin_inset Formula 
-\[
-\begin{array}{ccc}
-\max & 5\,w+4\,x+7\,y+13\,z\\
-\text{s.t.} & 4\,w+4\,x+5\,y+9\,z\leq13,\\
- & w\in\mathbb{Z}^{+},x\in\mathbb{Z}^{+},\\
- & y\in\mathbb{Z}^{+},z\in\mathbb{Z}^{+}.
-\end{array}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Exam knapsack (September 2016) 
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Dynamic-programming-Knapsack-Exam-Sep-2016"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Solve the following knapsack.
- 
-\begin_inset Formula 
-\[
-\begin{array}{ccc}
-\max & 7\,w+9\,x+12\,y+3\,z\\
-\text{s.t.} & 5\,w+6\,x+8\,y+3\,z\leq15,\\
- & w\in\mathcal{B},x\in\mathcal{B},y\in\mathcal{B},\\
- & z\in\mathbb{Z}^{+}.
-\end{array}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch Non-ULiège
-status open
-
-\begin_layout Subsection
-Knapsacks 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: Labels from above!
-\end_layout
-
-\end_inset
-
-
+Knapsacks
 \end_layout
 
 \begin_layout Standard
 Solve the following knapsacks.
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -24738,11 +24164,6 @@ Solve the following knapsacks.
  & z\in\mathbb{Z}^{+}.
 \end{array}
 \]
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -24844,6 +24265,7 @@ Dualise this instance using the previous statements and solve this dual
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -24911,6 +24333,7 @@ The optimum is to take the third and fifth objects.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -27218,55 +26641,11 @@ This solved the difficult knapsack by a series of smaller knapsacks.
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Subsection
-Exam dual knapsack (January 2015) 
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Dynamic-programming-Knapsack-Exam-Jan-2015"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Apply the dual knapsack technique to solve the following knapsack.
- 
-\begin_inset Formula 
-\[
-\begin{array}{ccc}
-\max & 3\,w+4\,x+6\,y+8\,z\\
-\text{s.t.} & 412\,w+507\,x+714\,y+881\,z\leq1394,\\
- & w\in\mathcal{B},x\in\mathcal{B},y\in\mathcal{B},z\in\mathcal{B}.
-\end{array}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch Non-ULiège
-status open
-
 \begin_layout Subsection
 Dual knapsacks 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: Labels from above!
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Dynamic-programming-Knapsack-Dual"
 
 \end_inset
 
@@ -27287,11 +26666,6 @@ Apply the dual knapsack technique to solve the following knapsack.
  & w\in\mathcal{B},x\in\mathcal{B},y\in\mathcal{B},z\in\mathcal{B}.
 \end{array}
 \]
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -27699,6 +27073,7 @@ Spool factory planning requirements.
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -27755,6 +27130,7 @@ H\!\left(k\right)=\min_{1\leq t\leq k}\left\{ H\!\left(t-1\right)+f_{t}+p_{t}\,\
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -28226,392 +27602,11 @@ What is sold at time
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Subsection
-Lot sizing (exam January 2016) 
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Dynamic-programming-Lot-sizing-January-2016"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In the lot-sizing problem, a company wants to plan its schedule of production
- by batches for a given number of periods.
- It must satisfy a demand at each time period and pays a fixed cost for
- producing a batch, a varying cost depending on the amount produced and
- a varying inventory cost.
- 
-\end_layout
-
-\begin_layout Standard
-Solve the following lot-sizing problem using dynamic programming with the
- data in the table below.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="6">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Periods
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $t$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Demand
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $d_{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-3
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Fixed costs
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $f_{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-20
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-20
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-25
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-15
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Varying costs
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $p_{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Inventory costs
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $h_{t}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Data for exercise 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Dynamic-programming-Lot-sizing-January-2016"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Branch Non-ULiège
-status open
-
 \begin_layout Subsection
 Other lot sizing 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: Labels from above!
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Dynamic-programming-Lot-sizing-Other"
 
 \end_inset
 
@@ -28958,16 +27953,11 @@ Inventory costs
 Data for exercise 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Dynamic-programming-Lot-sizing-January-2016"
+reference "subsec:Dynamic-programming-Lot-sizing-Other"
 
 \end_inset
 
 .
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -29053,6 +28043,7 @@ Propose an algorithm to solve it by dynamic programming.
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -29110,6 +28101,7 @@ t_{k}\!\left(j\right)=\max\left\{ r_{j},\quad\min\left\{ t_{k-1}\!\left(j\right)
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -29476,6 +28468,7 @@ The main difference between mixed-integer programming and constraint programming
 LatexCommand href
 name "SCIP"
 target "http://scip.zib.de/"
+literal "false"
 
 \end_inset
 
@@ -29549,6 +28542,7 @@ reusing
 LatexCommand href
 name "Global Constraint Catalog"
 target "http://sofdem.github.io/gccat/"
+literal "false"
 
 \end_inset
 
@@ -29840,6 +28834,7 @@ Example
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -29907,6 +28902,7 @@ x_{i,j+N}, & x_{i+1,j+N} & \cdots & x_{i+N,j+N}
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -30453,6 +29449,7 @@ Definition of alldifferent:
 \begin_inset CommandInset href
 LatexCommand href
 target "http://sofdem.github.io/gccat/gccat/Calldifferent.html"
+literal "false"
 
 \end_inset
 
@@ -30536,6 +29533,7 @@ alldifferent
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -30563,6 +29561,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -30683,16 +29682,6 @@ all digits must be different
 \end_inset
 
  queens 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(inspired by exam January 2014)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Constraint-programming-N-queens"
@@ -30749,6 +29738,7 @@ Solve the problem for
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -30774,6 +29764,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -30876,16 +29867,6 @@ status open
 
 \begin_layout Subsection
 * Stable mate matching 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2016)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Constraint-programming-Stable-mate-matching"
@@ -31141,6 +30122,7 @@ Model this situation as a maximum flow problem, with
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -31171,6 +30153,7 @@ Use one node per family (the family
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -31552,6 +30535,7 @@ Nurses requirements.
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -31566,6 +30550,7 @@ Use one node per shift and one per department.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -31953,6 +30938,7 @@ I-beams factory planning requirements.
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -31967,6 +30953,7 @@ Use one node per time period.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -32076,6 +31063,7 @@ Later on, they wish that some characters can have one or two political parties.
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -32092,6 +31080,7 @@ Use one node per trait and one per party, plus two nodes per character.
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -32247,6 +31236,7 @@ reference "subsec:Flows-Solve-maximum-flows-Shortest-augmenting-path"
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -32258,6 +31248,7 @@ The maximum flow is 8.
 
 
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -33132,6 +32123,7 @@ reference "subsec:Flows-Solve-feasible-flows-Transformation"
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -33522,19 +32514,9 @@ Feasible bounded flow, found flow.
 
 \begin_layout Subsection
 Transformation into a maximum flow 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2017)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Flows-Solve-feasible-flows-Transformation-exam-january-2017"
+name "subsec:Flows-Solve-feasible-flows-Transformation-other"
 
 \end_inset
 
@@ -33581,7 +32563,7 @@ status open
 Network for exercise 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Flows-Solve-feasible-flows-Transformation-exam-january-2017"
+reference "subsec:Flows-Solve-feasible-flows-Transformation-other"
 
 \end_inset
 
@@ -33611,16 +32593,6 @@ name "sec:Flows-Solve-minimum-cut"
 
 \begin_layout Subsection
 Minimum cut with maximum flows 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exams January and August 2015)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Flows-Solve-minimum-cut-Max-flow-1"
@@ -33683,6 +32655,7 @@ reference "subsec:Flows-Solve-minimum-cut-Max-flow-1"
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -33709,6 +32682,7 @@ A minimum
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -33897,16 +32871,6 @@ Residual graph.
 
 \begin_layout Subsection
 Minimum cut with maximum flows 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam August 2013)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Flows-Solve-minimum-cut-Max-flow-2"
@@ -34089,6 +33053,7 @@ reference "subsec:Matching-Maximum-cardinality-bipartite"
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -34117,7 +33082,6 @@ Find a matching of
 maximum
 \emph default
  cardinality in the following bipartite graph.
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -34168,6 +33132,7 @@ reference "subsec:Matching-Maximum-cardinality-bipartite"
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -34187,6 +33152,7 @@ A maximum matching is:
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -35072,19 +34038,9 @@ No augmenting path! (Starts outside
 
 \begin_layout Subsection
 Maximum cardinality matching for a bipartite graph 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(exam January 2013)
-\end_layout
-
-\end_inset
-
- 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Matching-Maximum-cardinality-bipartite-exam-Jan-2013"
+name "subsec:Matching-Maximum-cardinality-bipartite-2"
 
 \end_inset
 
@@ -35145,6 +34101,7 @@ reference "subsec:Matching-Maximum-cardinality-bipartite"
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -35192,6 +34149,7 @@ Find a maximal weight assignment in the complete graph where the edges have
 
 \begin_layout Standard
 \begin_inset Branch solution
+inverted 0
 status open
 
 \begin_layout Solution*
@@ -35212,6 +34170,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
@@ -35899,17 +34858,7 @@ z^{*}=6+7+9+1+9=32=w^{\left(2\right)}.
 \end_layout
 
 \begin_layout Subsection
-Inequality assignment 
-\begin_inset Branch ULiège
-status open
-
-\begin_layout Standard
-(January 2016)
-\end_layout
-
-\end_inset
-
-
+Inequality assignment
 \end_layout
 
 \begin_layout Standard
@@ -35976,6 +34925,7 @@ increases
 
 \begin_layout Standard
 \begin_inset Branch TA
+inverted 0
 status collapsed
 
 \begin_layout Subsubsection
