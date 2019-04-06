@@ -134,7 +134,7 @@ Version history
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="18" columns="3">
+<lyxtabular version="3" rows="19" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="1.5cm">
 <column alignment="center" valignment="top" width="2.5cm">
@@ -942,14 +942,20 @@ reference "subsec:Dynamic-programming-Knapsack-Exam-Jan-2013"
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Dynamic-programming-Knapsack-Exam-Aug-2015"
+reference "subsec:Dynamic-programming-Knapsack-Duality"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Dynamic-programming-Knapsack-Exam-Sep-2016"
+reference "subsec:Dynamic-programming-Knapsack-Dual"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -1003,7 +1009,7 @@ reference "subsec:Modelling-Graph-Graph-colouring"
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1012,7 +1018,7 @@ reference "subsec:Modelling-Graph-Graph-colouring"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1021,7 +1027,7 @@ reference "subsec:Modelling-Graph-Graph-colouring"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1047,6 +1053,35 @@ noprefix "false"
 
 .
  Remove ULiège specificities
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7 April 2019
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Update the Julia tutorial to 1.0+, JuMP to 0.19+
 \end_layout
 
 \end_inset
@@ -1154,7 +1189,7 @@ literal "false"
 \begin_inset CommandInset href
 LatexCommand href
 name "Julia documentation"
-target "http://docs.julialang.org/en/release-0.4/"
+target "https://docs.julialang.org/en/latest/"
 literal "false"
 
 \end_inset
@@ -1166,7 +1201,7 @@ literal "false"
 \begin_inset CommandInset href
 LatexCommand href
 name "Plots.jl website and documentation"
-target "https://juliaplots.github.io/"
+target "http://www.juliaplots.org"
 literal "false"
 
 \end_inset
@@ -1190,7 +1225,7 @@ literal "false"
 \begin_inset CommandInset href
 LatexCommand href
 name "JuMP documentation"
-target "http://jump.readthedocs.io/en/latest/"
+target "http://www.juliaopt.org/JuMP.jl/latest/"
 literal "false"
 
 \end_inset
@@ -1419,7 +1454,6 @@ a[:, 3]
 
 \begin_layout Enumerate
 Vectors.
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -1428,7 +1462,6 @@ Use the function
 vec
 \family default
 .
- 
 \end_layout
 
 \end_deeper
@@ -1467,7 +1500,7 @@ a[:, 3]
 \end_layout
 
 \begin_layout Enumerate
-Vectors (but not for versions of Julia before 0.5).
+Vectors.
  
 \end_layout
 
@@ -1740,7 +1773,7 @@ zeros
 \family default
 , and 
 \family typewriter
-eye
+LinearAlgebra.I
 \family default
 .
  
@@ -1759,11 +1792,13 @@ status collapsed
 \begin_layout Solution*
 
 \family typewriter
-ones(3, 3); zeros(3, 3); eye(3, 3)
-\family default
- or 
+ones(3, 3); zeros(3, 3)
+\end_layout
+
+\begin_layout Solution*
+For the identity matrix: 
 \family typewriter
-eye(3)
+using LinearAlgebra; Matrix{Float64}(I, 3, 3)
 \end_layout
 
 \end_inset
@@ -1791,7 +1826,7 @@ status open
 \begin_layout Solution*
 Use the function 
 \family typewriter
-linspace
+range
 \family default
 .
  
@@ -1810,7 +1845,7 @@ status collapsed
 \begin_layout Solution*
 
 \family typewriter
-collect(linspace(6, 52, 5))
+collect(range(6, 52, length=50))
 \end_layout
 
 \begin_deeper
@@ -1928,7 +1963,7 @@ status open
 \begin_layout Exercise
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Solution*
 
@@ -2293,11 +2328,11 @@ a .<= 0
 \begin_layout Enumerate
 
 \family typewriter
-find(a .<= 0)
+findall(a .<= 0)
 \family default
  gives 
 \family typewriter
-[3, 6]
+[CartesianIndex(3, 1), CartesianIndex(3, 2)]
 \end_layout
 
 \end_deeper
@@ -2358,6 +2393,13 @@ Compute the sum within a
 for
 \family default
  loop.
+ Use the 
+\family typewriter
+global
+\family default
+ keyword if you work from the shell (otherwise, the variable you will be
+ updating in the loop would not be the same as the one you initialised before
+ it).
  You should use an accumulator and the operator 
 \family typewriter
 +=
@@ -2403,6 +2445,11 @@ exp_x = 0.
 \begin_layout Plain Layout
 
 for i in 0:n
+\end_layout
+
+\begin_layout Plain Layout
+
+  global exp_x
 \end_layout
 
 \begin_layout Plain Layout
@@ -2675,7 +2722,12 @@ Plots with Plots.jl
 Julia has no built-in plotting facility.
  Before making plots, you must thus install Plots.jl and a rendering engine
  (such as GR).
- To this end, type the following commands: 
+ To this end, type 
+\family typewriter
+]
+\family default
+ to access the package installation facilities and use the following command
+ (packages are separated by spaces): 
 \end_layout
 
 \begin_layout Standard
@@ -2687,21 +2739,19 @@ status open
 
 \begin_layout Plain Layout
 
-Pkg.add("Plots")
-\end_layout
-
-\begin_layout Plain Layout
-
-Pkg.add("GR")
+add Plots GR
 \end_layout
 
 \end_inset
 
 
+\family default
+Then, use back-space to return to the normal shell.
 \end_layout
 
 \begin_layout Standard
-Then, before attempting to plot, import the Plots.jl package with 
+Once installation is performed, before attempting to plot, import the Plots.jl
+ package with 
 \family typewriter
 using Plots
 \family default
@@ -2773,6 +2823,77 @@ plot(x -> sin(x^2), 0:.1:2)
 \end_layout
 
 \end_deeper
+\begin_layout Solution*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 1_plot_sin.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Result of 
+\family typewriter
+plot(sin, 0:.1:2)
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 1_plot_sin2.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Result of 
+\family typewriter
+plot(x -> sin(x^2), 0:.1:2)
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -2824,6 +2945,43 @@ status collapsed
 plot(sin, 0:.1:2); plot!(x -> sin(x^2), 0:.1:2)
 \end_layout
 
+\begin_layout Solution*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 1_plot_sin_sin2.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Result of 
+\family typewriter
+plot(sin, 0:.1:2); plot!(x -> sin(x^2), 0:.1:2)
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -2836,7 +2994,12 @@ Mathematical optimisation models with JuMP
 \begin_layout Standard
 Just like plotting, mathematical optimisation is not included in Julia.
  You must thus install a modelling layer (JuMP) and a solver (like Cbc).
- To this end, type the following commands: 
+ To this end, type 
+\family typewriter
+]
+\family default
+ to access the package installation facilities and use the following command
+ (packages are separated by spaces):
 \end_layout
 
 \begin_layout Standard
@@ -2848,12 +3011,7 @@ status open
 
 \begin_layout Plain Layout
 
-Pkg.add("JuMP")
-\end_layout
-
-\begin_layout Plain Layout
-
-Pkg.add("Cbc")
+add JuMP Cbc
 \end_layout
 
 \end_inset
@@ -2961,15 +3119,11 @@ Model
 \begin_inset Newline newline
 \end_inset
 
-You must provide an instance of the solver 
+You must provide a solver factory 
 \family typewriter
-CbcSolver()
+with_optimizer(Cbc.Optimizer)
 \family default
- with the 
-\family typewriter
-solver
-\family default
- keyword argument when calling 
+ when calling 
 \family typewriter
 Model
 \family default
@@ -2980,25 +3134,23 @@ Model
 \begin_layout Enumerate
 Use the function 
 \family typewriter
-solve
+optimize!
 \family default
 .
- 
 \end_layout
 
 \begin_layout Enumerate
 Use the function 
 \family typewriter
-getobjectivevalue
+objective_value
 \family default
 .
- 
 \end_layout
 
 \begin_layout Enumerate
 Use the function 
 \family typewriter
-getvalue
+value
 \family default
  with a variable.
  
@@ -3007,7 +3159,7 @@ getvalue
 \begin_layout Enumerate
 Use the function 
 \family typewriter
-getvalue
+value
 \family default
  with a more complex expression.
  
@@ -3022,7 +3174,7 @@ getvalue
 \begin_layout Exercise
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Solution*
 \begin_inset space ~
@@ -3039,7 +3191,7 @@ status open
 
 \begin_layout Plain Layout
 
-m = Model()
+m = Model(with_optimizer(Cbc.Optimizer))
 \end_layout
 
 \begin_layout Plain Layout
@@ -3070,13 +3222,13 @@ m = Model()
 \begin_layout Enumerate
 
 \family typewriter
-solve(m)
+optimize!(m)
 \end_layout
 
 \begin_layout Enumerate
 
 \family typewriter
-getobjectivevalue(m)
+objective_value(m)
 \family default
  gives 18.4
 \end_layout
@@ -3084,7 +3236,7 @@ getobjectivevalue(m)
 \begin_layout Enumerate
 
 \family typewriter
-getvalue(x)
+value(x)
 \family default
  gives 16.4
 \end_layout
@@ -3092,7 +3244,7 @@ getvalue(x)
 \begin_layout Enumerate
 
 \family typewriter
-getvalue(x + 4 * y)
+value(x + 4 * y)
 \family default
  gives 24.4
 \end_layout
@@ -3193,7 +3345,7 @@ status open
 
 \begin_layout Plain Layout
 
-m = Model()
+m = Model(with_optimizer(Cbc.Optimizer))
 \end_layout
 
 \begin_layout Plain Layout
@@ -3224,13 +3376,13 @@ m = Model()
 \begin_layout Enumerate
 
 \family typewriter
-solve(m)
+optimize!(m)
 \end_layout
 
 \begin_layout Enumerate
 
 \family typewriter
-getobjectivevalue(m)
+objective_value(m)
 \family default
  gives 19
 \end_layout
@@ -3238,7 +3390,7 @@ getobjectivevalue(m)
 \begin_layout Enumerate
 
 \family typewriter
-getvalue(x)
+value(x)
 \family default
  gives 17
 \end_layout
@@ -3246,7 +3398,7 @@ getvalue(x)
 \begin_layout Enumerate
 
 \family typewriter
-getvalue(x + 4 * y)
+value(x + 4 * y)
 \family default
  gives 25
 \end_layout
@@ -3384,7 +3536,7 @@ e = [5, 40, 20, 50]
 
 \begin_layout Plain Layout
 
-m = Model()
+m = Model(with_optimizer(Cbc.Optimizer))
 \end_layout
 
 \begin_layout Plain Layout
@@ -3462,13 +3614,13 @@ end
 \begin_layout Enumerate
 
 \family typewriter
-solve(m)
+optimize!(m)
 \end_layout
 
 \begin_layout Enumerate
 
 \family typewriter
-getobjectivevalue(m)
+objective_value(m)
 \family default
  gives 63.9
 \end_layout
@@ -3476,7 +3628,7 @@ getobjectivevalue(m)
 \begin_layout Enumerate
 
 \family typewriter
-getvalue(x)
+value(x)
 \family default
  gives 
 \family typewriter
@@ -3486,7 +3638,7 @@ getvalue(x)
 \begin_layout Enumerate
 
 \family typewriter
-getvalue(y)
+value(y)
 \family default
  gives 
 \family typewriter
@@ -3496,7 +3648,7 @@ getvalue(y)
 \begin_layout Enumerate
 
 \family typewriter
-getvalue(z)
+value(z)
 \family default
  gives 
 \family typewriter
@@ -13980,7 +14132,7 @@ status open
 
 \begin_layout Plain Layout
 
-m = Model(solver=GurobiSolver())
+m = Model(with_optimizer(Cbc.Optimizer))
 \end_layout
 
 \begin_layout Plain Layout
@@ -14015,7 +14167,7 @@ m = Model(solver=GurobiSolver())
 
 \begin_layout Plain Layout
 
-solve(m)
+optimize!(m)
 \end_layout
 
 \end_inset
@@ -14042,7 +14194,7 @@ status open
 
 \begin_layout Plain Layout
 
-m = Model(solver=GurobiSolver())
+m = Model(with_optimizer(Cbc.Optimizer))
 \end_layout
 
 \begin_layout Plain Layout
@@ -14077,7 +14229,7 @@ m = Model(solver=GurobiSolver())
 
 \begin_layout Plain Layout
 
-solve(m)
+optimize!(m)
 \end_layout
 
 \end_inset
