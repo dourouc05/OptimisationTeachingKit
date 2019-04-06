@@ -13777,7 +13777,19 @@ status open
 
 \begin_layout Plain Layout
 Ajouter un exercice où on a plusieurs nœuds que l'on continue à explorer
- ! 
+ !
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Ajouter un exercice sans simplexe en dessous, par exemple avec un sac à
+ dos et une heuristique (+ borne inf) ?
 \end_layout
 
 \end_inset
@@ -13925,44 +13937,6 @@ Solve the following problems geometrically using the branch-and-bound algorithm
 \end_inset
 
 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-m = Model(solver=GurobiSolver())
-\end_layout
-
-\begin_layout Plain Layout
-@variable(m, x >= 0, Int)
-\end_layout
-
-\begin_layout Plain Layout
-@variable(m, y >= 0, Int)
-\end_layout
-
-\begin_layout Plain Layout
-@constraint(m, x <= 6)
-\end_layout
-
-\begin_layout Plain Layout
-@constraint(m, x - 3 * y >= 1)
-\end_layout
-
-\begin_layout Plain Layout
-@constraint(m, 3 * x + 2 * y <= 19)
-\end_layout
-
-\begin_layout Plain Layout
-@objective(m, Max, 9 * x + 5 * y)
-\end_layout
-
-\begin_layout Plain Layout
-solve(m)
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -13976,44 +13950,6 @@ solve(m)
  & \left(x,y\right)\in\mathbb{Z}_{+}^{2}.
 \end{array}
 \]
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-m = Model(solver=GurobiSolver())
-\end_layout
-
-\begin_layout Plain Layout
-@variable(m, x >= 0, Int)
-\end_layout
-
-\begin_layout Plain Layout
-@variable(m, y >= 0, Int)
-\end_layout
-
-\begin_layout Plain Layout
-@constraint(m, - 2/3 * x + y <= 5/2)
-\end_layout
-
-\begin_layout Plain Layout
-@constraint(m, 1/3 * x + y <= 9/2)
-\end_layout
-
-\begin_layout Plain Layout
-@constraint(m, 2 * x + y <= 14)
-\end_layout
-
-\begin_layout Plain Layout
-@objective(m, Max, 2 * x + 3 * y)
-\end_layout
-
-\begin_layout Plain Layout
-solve(m)
-\end_layout
 
 \end_inset
 
@@ -14035,7 +13971,60 @@ For the first problem, the solution is
 \end_inset
 
 .
- For the second problem, the solution is 
+\end_layout
+
+\begin_layout Solution*
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+m = Model(solver=GurobiSolver())
+\end_layout
+
+\begin_layout Plain Layout
+
+@variable(m, x >= 0, Int)
+\end_layout
+
+\begin_layout Plain Layout
+
+@variable(m, y >= 0, Int)
+\end_layout
+
+\begin_layout Plain Layout
+
+@constraint(m, x <= 6)
+\end_layout
+
+\begin_layout Plain Layout
+
+@constraint(m, x - 3 * y >= 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@constraint(m, 3 * x + 2 * y <= 19)
+\end_layout
+
+\begin_layout Plain Layout
+
+@objective(m, Max, 9 * x + 5 * y)
+\end_layout
+
+\begin_layout Plain Layout
+
+solve(m)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+For the second problem, the solution is 
 \begin_inset Formula $x=6$
 \end_inset
 
@@ -14044,7 +14033,56 @@ For the first problem, the solution is
 \end_inset
 
 .
- 
+\end_layout
+
+\begin_layout Solution*
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+m = Model(solver=GurobiSolver())
+\end_layout
+
+\begin_layout Plain Layout
+
+@variable(m, x >= 0, Int)
+\end_layout
+
+\begin_layout Plain Layout
+
+@variable(m, y >= 0, Int)
+\end_layout
+
+\begin_layout Plain Layout
+
+@constraint(m, - 2/3 * x + y <= 5/2)
+\end_layout
+
+\begin_layout Plain Layout
+
+@constraint(m, 1/3 * x + y <= 9/2)
+\end_layout
+
+\begin_layout Plain Layout
+
+@constraint(m, 2 * x + y <= 14)
+\end_layout
+
+\begin_layout Plain Layout
+
+@objective(m, Max, 2 * x + 3 * y)
+\end_layout
+
+\begin_layout Plain Layout
+
+solve(m)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -18560,23 +18598,6 @@ integer-feasible solutions
 \emph default
 .
  
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Contents of this session: algorithms to derive valid inequalities, with
- hypotheses.
- The goal is always to generate a valid inequality, whatever the technique
- that is employed.
- 
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
