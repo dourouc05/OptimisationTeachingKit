@@ -667,42 +667,42 @@ reference "subsec:Modelling-More-Flash-drives"
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Branch-and-bound-Behaviour-Tree-interpretation-august-2014"
+reference "subsec:Branch-and-bound-Behaviour-Tree-interpretation-1"
 
 \end_inset
 
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Cuts-Exam-January-2014"
+reference "subsec:Cuts-Supplementary-Set-3"
 
 \end_inset
 
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Cuts-Exam-August-2014"
+reference "subsec:Cuts-Supplementary-Set-4"
 
 \end_inset
 
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Cuts-Exams-January-and-August-2015"
+reference "subsec:Cuts-Supplementary-Set-5"
 
 \end_inset
 
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Cuts-Exam-September-2016"
+reference "subsec:Cuts-Supplementary-Set-6"
 
 \end_inset
 
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Dynamic-programming-Lot-sizing-Other"
+reference "subsec:Dynamic-programming-Lot-sizing-2"
 
 \end_inset
 
@@ -875,14 +875,14 @@ reference "subsec:Formulation-comparison-General-problems-Lot-sizing"
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Flows-Solve-feasible-flows-Transformation-other"
+reference "subsec:Flows-Solve-feasible-flows-Transformation-2"
 
 \end_inset
 
 , and 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Branch-and-bound-Behaviour-Tree-interpretation-january-2017"
+reference "fig:Branch-and-bound-Behaviour-Tree-interpretation-2"
 
 \end_inset
 
@@ -1130,10 +1130,20 @@ noprefix "false"
 
 \end_inset
 
-, and 
+, 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Modelling-More"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Flows-Solve-feasible-flows-Transformation-1"
 plural "false"
 caps "false"
 noprefix "false"
@@ -16797,7 +16807,7 @@ Step 10.
 Tree interpretation 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Branch-and-bound-Behaviour-Tree-interpretation-august-2014"
+name "subsec:Branch-and-bound-Behaviour-Tree-interpretation-1"
 
 \end_inset
 
@@ -16808,7 +16818,7 @@ name "subsec:Branch-and-bound-Behaviour-Tree-interpretation-august-2014"
 In the branch-and-bound tree of Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Branch-and-bound-Behaviour-Tree-interpretation-august-2014"
+reference "fig:Branch-and-bound-Behaviour-Tree-interpretation-1"
 
 \end_inset
 
@@ -16861,7 +16871,7 @@ A partial branch-and-bound tree.
  
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Branch-and-bound-Behaviour-Tree-interpretation-august-2014"
+name "fig:Branch-and-bound-Behaviour-Tree-interpretation-1"
 
 \end_inset
 
@@ -16882,7 +16892,7 @@ name "fig:Branch-and-bound-Behaviour-Tree-interpretation-august-2014"
 Tree interpretation 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Branch-and-bound-Behaviour-Tree-interpretation-january-2017"
+name "subsec:Branch-and-bound-Behaviour-Tree-interpretation-2"
 
 \end_inset
 
@@ -16893,7 +16903,7 @@ name "subsec:Branch-and-bound-Behaviour-Tree-interpretation-january-2017"
 Consider the branch-and-bound tree which is depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Branch-and-bound-Behaviour-Tree-interpretation-january-2017"
+reference "fig:Branch-and-bound-Behaviour-Tree-interpretation-2"
 
 \end_inset
 
@@ -16947,7 +16957,7 @@ A partial branch-and-bound tree.
  
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Branch-and-bound-Behaviour-Tree-interpretation-january-2017"
+name "fig:Branch-and-bound-Behaviour-Tree-interpretation-2"
 
 \end_inset
 
@@ -18410,7 +18420,7 @@ P_{2}=\Big\{\left(x,y,w\right)\in\mathbb{R}_{+}^{T}\times\mathcal{B}^{T}\times\m
 \end_layout
 
 \begin_layout Standard
-Then: 
+Then:
 \end_layout
 
 \begin_layout Enumerate
@@ -19637,7 +19647,6 @@ Find a valid inequality for the following sets:
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -22914,7 +22923,7 @@ x_{3}+x_{4}+x_{5}\leq2.
 Supplementary exercises 
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Cuts-Exam"
+name "subsec:Cuts-Supplementary"
 
 \end_inset
 
@@ -22925,7 +22934,7 @@ name "sec:Cuts-Exam"
 Set 1 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Cuts-Exam-January-2013"
+name "subsec:Cuts-Supplementary-Set-1"
 
 \end_inset
 
@@ -22963,7 +22972,6 @@ For each of the following sets, give a valid inequality for the discrete
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -22975,14 +22983,13 @@ For each of the following sets, give a valid inequality for the discrete
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Subsection
 Set 2 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Cuts-Exam-August-2013"
+name "subsec:Cuts-Supplementary-Set-2"
 
 \end_inset
 
@@ -23046,7 +23053,7 @@ Show that the new inequality in a facet of
 Set 3 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Cuts-Exam-January-2014"
+name "subsec:Cuts-Supplementary-Set-3"
 
 \end_inset
 
@@ -23106,7 +23113,7 @@ Find a valid inequality for
 Set 4 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Cuts-Exam-August-2014"
+name "subsec:Cuts-Supplementary-Set-4"
 
 \end_inset
 
@@ -23159,7 +23166,7 @@ For each discrete set and each point, find a valid inequality that cuts
 Set 5 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Cuts-Exams-January-and-August-2015"
+name "subsec:Cuts-Supplementary-Set-5"
 
 \end_inset
 
@@ -23225,7 +23232,7 @@ If possible, provide a facet-defining inequality of
 Set 6 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Cuts-Exam-September-2016"
+name "subsec:Cuts-Supplementary-Set-6"
 
 \end_inset
 
@@ -23376,7 +23383,6 @@ The subtour elimination formulation:
 
 Consider adding lazily the subtour elimination, based on a subtour you find
  in the graph (any tour that does not include the origin is a subtour).
- 
 \end_layout
 
 \end_inset
@@ -23403,7 +23409,6 @@ reference "subsec:Comparison-Graph-TSP"
 
  for the model.
  Lazy constraints: too many subtour elimination constraints.
- 
 \end_layout
 
 \end_inset
@@ -24052,7 +24057,7 @@ reference "part:Polynomially-solvable-problems"
 \end_layout
 
 \begin_layout Subsection
-Symmetric travellingsalesman problem 
+Symmetric travelling salesman problem 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Lagrangian-STSP"
@@ -24102,10 +24107,10 @@ reference "subsec:Modelling-Graph-TSP"
 \end_layout
 
 \begin_layout Subsection
-Generalised assignment 
+* Generalised assignment 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Lagrangian-Generalised-assignment"
+name "subsec:Lagrangian-Generalised-assignment-1"
 
 \end_inset
 
@@ -24158,7 +24163,7 @@ where the costs are given by the matrices:
 * Generalised assignment 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Lagrangian-Generalised-assignment-Jan-2014"
+name "subsec:Lagrangian-Generalised-assignment-2"
 
 \end_inset
 
@@ -24331,20 +24336,6 @@ status open
 \begin_layout Plain Layout
 Solution: see Wolsey, Exercise 10.1, p.
  169
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch TA
-inverted 0
-status collapsed
-
-\begin_layout Subsubsection
-Solution
 \end_layout
 
 \end_inset
@@ -27704,7 +27695,7 @@ Lot sizing
 Basic lot sizing 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Dynamic-programming-Lot-sizing-Basic"
+name "subsec:Dynamic-programming-Lot-sizing-1"
 
 \end_inset
 
@@ -28627,10 +28618,10 @@ What is sold at time
 \end_layout
 
 \begin_layout Subsection
-Other lot sizing 
+Lot sizing 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Dynamic-programming-Lot-sizing-Other"
+name "subsec:Dynamic-programming-Lot-sizing-2"
 
 \end_inset
 
@@ -28977,7 +28968,7 @@ Inventory costs
 Data for exercise 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Dynamic-programming-Lot-sizing-Other"
+reference "subsec:Dynamic-programming-Lot-sizing-2"
 
 \end_inset
 
@@ -32271,6 +32262,9 @@ The maximum flow is 8.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Branch TA
 inverted 0
 status collapsed
@@ -33090,7 +33084,7 @@ name "sec:Flows-Solve-feasible-flows"
 Transformation into a maximum flow 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Flows-Solve-feasible-flows-Transformation"
+name "subsec:Flows-Solve-feasible-flows-Transformation-1"
 
 \end_inset
 
@@ -33128,7 +33122,7 @@ status open
 Network for exercise 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Flows-Solve-feasible-flows-Transformation"
+reference "subsec:Flows-Solve-feasible-flows-Transformation-1"
 
 \end_inset
 
@@ -33138,6 +33132,44 @@ reference "subsec:Flows-Solve-feasible-flows-Transformation"
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+A feasible flow is: 5 units in 
+\begin_inset Formula $s\to1$
+\end_inset
+
+, 1 unit in 
+\begin_inset Formula $1\to2$
+\end_inset
+
+, 2 units in 
+\begin_inset Formula $1\to3$
+\end_inset
+
+, 1 unit in 
+\begin_inset Formula $3\to2$
+\end_inset
+
+, 2 units in 
+\begin_inset Formula $2\to t$
+\end_inset
+
+, 1 unit in 
+\begin_inset Formula $3\to t$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -33540,7 +33572,7 @@ Feasible bounded flow, found flow.
 Transformation into a maximum flow 
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Flows-Solve-feasible-flows-Transformation-other"
+name "subsec:Flows-Solve-feasible-flows-Transformation-2"
 
 \end_inset
 
@@ -33587,7 +33619,7 @@ status open
 Network for exercise 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Flows-Solve-feasible-flows-Transformation-other"
+reference "subsec:Flows-Solve-feasible-flows-Transformation-2"
 
 \end_inset
 
@@ -34068,20 +34100,6 @@ reference "subsec:Matching-Maximum-cardinality-bipartite"
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch TA
-inverted 0
-status collapsed
-
-\begin_layout Subsubsection
-Solution
 \end_layout
 
 \end_inset
@@ -35124,16 +35142,6 @@ reference "subsec:Matching-Maximum-cardinality-bipartite"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch TA
-inverted 0
-status collapsed
-
-\begin_layout Subsubsection
-Solution
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -35945,20 +35953,6 @@ increases
 \emph default
  the objective function.
  
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch TA
-inverted 0
-status collapsed
-
-\begin_layout Subsubsection
-Solution
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body
