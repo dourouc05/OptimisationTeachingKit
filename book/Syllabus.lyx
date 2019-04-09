@@ -134,7 +134,7 @@ Version history
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="19" columns="3">
+<lyxtabular version="3" rows="20" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="1.5cm">
 <column alignment="center" valignment="top" width="2.5cm">
@@ -935,7 +935,7 @@ reference "chap:Julia"
  Added exercises 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Dynamic-programming-Knapsack-Exam-Jan-2013"
+reference "subsec:Dynamic-programming-Knapsack-Advanced"
 
 \end_inset
 
@@ -1059,7 +1059,7 @@ noprefix "false"
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1068,7 +1068,7 @@ noprefix "false"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1077,11 +1077,70 @@ noprefix "false"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 Update the Julia tutorial to 1.0+, JuMP to 0.19+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.12.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10 April 2019
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reworked exercises 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Modelling-Warm-up"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Modelling-Thresholds"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Modelling-More"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1963,7 +2022,7 @@ status open
 \begin_layout Exercise
 \begin_inset Branch TA
 inverted 0
-status open
+status collapsed
 
 \begin_layout Solution*
 
@@ -3174,7 +3233,7 @@ value
 \begin_layout Exercise
 \begin_inset Branch TA
 inverted 0
-status open
+status collapsed
 
 \begin_layout Solution*
 \begin_inset space ~
@@ -3793,7 +3852,6 @@ mixed-integer linear
 \end_inset
 
  are vectors of constants.
- 
 \end_layout
 
 \begin_layout Standard
@@ -3824,7 +3882,6 @@ at most
 \begin_layout Remark*
 For each exercise, you may consider to implement in with a modelling environment
  (JuMP, Convex.jl, Pyomo, ZIMPL, CVX, etc.).
- 
 \end_layout
 
 \begin_layout Section
@@ -3908,6 +3965,60 @@ The government goal is to minimise their total costs (i.e.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model (
+\begin_inset Formula $f_{i}$
+\end_inset
+
+: cost of opening hospital 
+\begin_inset Formula $i\in\mathcal{H}$
+\end_inset
+
+; 
+\begin_inset Formula $v_{ij}$
+\end_inset
+
+: cost of serving point 
+\begin_inset Formula $j\in\mathcal{C}$
+\end_inset
+
+ from hospital 
+\begin_inset Formula $i\in\mathcal{H}$
+\end_inset
+
+; 
+\begin_inset Formula $d_{j}$
+\end_inset
+
+: demand of point 
+\begin_inset Formula $j\in\mathcal{C}$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \sum_{i\in\mathcal{H}}\left[f_{i}\,\mathrm{open}_{i}+\sum_{j\in\mathcal{C}}\left(v_{ij}\,\mathrm{demand}_{ij}\right)\right]\\
+\text{s.t.} & \sum_{i\in\mathcal{I}}\mathrm{demand}_{ij}=d_{j} & \forall j\in\mathcal{C}\\
+ & \mathrm{demand}_{ij}\leq\left(\sum_{j\in\mathcal{C}}d_{j}\right)\,\mathrm{open}_{i} & \forall i\in\mathcal{H}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Branch TA
 inverted 0
 status collapsed
@@ -3970,7 +4081,7 @@ Constraints:
 Demand of each point met: 
 \begin_inset Formula 
 \[
-\sum_{i\in\mathcal{I}}\mathrm{demand}_{ij}=d_{j},\qquad\forall j\in\mathcal{C}.
+\sum_{i\in\mathcal{H}}\mathrm{demand}_{ij}=d_{j},\qquad\forall j\in\mathcal{C}.
 \]
 
 \end_inset
@@ -4002,22 +4113,156 @@ Variants
 \begin_layout Enumerate
 Add a maximum capacity to each hospital (instead of having an infinite capacity:
  a hospital can only fulfil some maximum demand).
- 
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+\begin_inset Formula $\sum_{j\in\mathcal{C}}\mathrm{demand}_{ij}\leq c$
+\end_inset
+
+, 
+\begin_inset Formula $\forall i\in\mathcal{H}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Allow to build various sizes of hospitals (small hospital, small cost, small
  demand, up to large hospital).
- 
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+\begin_inset Formula $\sum_{j\in\mathcal{C}}\mathrm{demand}_{ij}\leq c_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\forall i\in\mathcal{H}$
+\end_inset
+
+ (a different constant 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ for each hospital).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Consider a set of hospitals already exists and already meets some demand:
  their building cost is then zero, except when they are upgraded (a small
  hospital can be extended to become a medium-sized one).
- What should you modify to account for this situation? 
+ What should you modify to account for this situation?
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Add new variables per hospital: 
+\begin_inset Formula $\mathrm{open}_{ic}$
+\end_inset
+
+ indicates if hospital 
+\begin_inset Formula $i$
+\end_inset
+
+ is built/upgraded at capacity 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ The corresponding costs 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ must also be indexed by the capacity 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ The most interesting part is the capacity of each hospital: the capacity
+ depends on which 
+\begin_inset Formula $\mathrm{open}_{ic}$
+\end_inset
+
+ is true; if all 
+\begin_inset Formula $\mathrm{open}_{ic}$
+\end_inset
+
+ are false, the hospital is closed; if a subset of the
+\begin_inset Formula $\mathrm{open}_{ic}$
+\end_inset
+
+ is false, the variables in the subset have no impact on capacity.
+ Thus (also see Exercise 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Boolean-algebra-Conjunction-(AND)"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+\sum_{j\in\mathcal{C}}\mathrm{demand}_{ij}\leq c_{ic}\,\mathrm{open}_{ic}+M_{i}\,\mathrm{open}_{i},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+M_{i}=\max_{c}c_{ic},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{open}_{i}=\bigwedge_{c}\mathrm{open}_{ic}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Nurse scheduling 
 \begin_inset CommandInset label
@@ -4389,6 +4634,70 @@ A nurse working day.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model (
+\begin_inset Formula $\mathrm{start}_{t}$
+\end_inset
+
+: number of nurses starting at time 
+\begin_inset Formula $t$
+\end_inset
+
+; 
+\begin_inset Formula $\mathrm{working}_{t}$
+\end_inset
+
+: number of nurses working at time 
+\begin_inset Formula $t$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \sum_{t\in\mathcal{T}}\mathrm{start}_{t}\\
+\text{s.t.} & \mathrm{working}_{t}\geq\mathrm{req}_{t} & \forall t\in\mathcal{T}\\
+ & \mathrm{working}_{t}=\mathrm{start}_{t}+\mathrm{start}_{t-\mathbf{1}}+\mathrm{start}_{t-\mathbf{3}}+\mathrm{start}_{t-\mathbf{4}} & \forall t\in\mathcal{T}
+\end{array}
+\]
+
+\end_inset
+
+With over time (
+\begin_inset Formula $\mathrm{extra}_{t}$
+\end_inset
+
+: number of nurses working over time at time 
+\begin_inset Formula $t$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \sum_{t\in\mathcal{T}}\mathrm{extra}_{t}\\
+\text{s.t.} & \mathrm{working}_{t}\geq\mathrm{req}_{t} & \forall t\in\mathcal{T}\\
+ & \sum_{t\in\mathcal{T}}\mathrm{start}_{t}\leq55\\
+ & \mathrm{working}_{t}=\mathrm{start}_{t}+\mathrm{start}_{t-\mathbf{1}}+\mathrm{start}_{t-\mathbf{3}}+\mathrm{start}_{t-\mathbf{4}}+\mathrm{extra}_{t-\mathbf{5}} & \forall t\in\mathcal{T}\\
+ & \mathrm{extra}_{t}\leq\mathrm{start}_{t} & \forall t\in\mathcal{T}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Branch TA
 inverted 0
 status collapsed
@@ -4519,7 +4828,7 @@ Enough nurses at each period (as before):
 \end_layout
 
 \begin_layout Itemize
-At most fifty five nurses are available: V
+At most fifty five nurses are available: 
 \begin_inset Formula 
 \[
 \sum_{t\in\mathcal{T}}\mathrm{start}_{t}\leq55.
@@ -4609,6 +4918,57 @@ The goal is to create groups so that participants know as few other people
  Choose a plausible objective function and formulate this problem as a mixed-int
 eger linear program.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model (
+\begin_inset Formula $x_{ik}$
+\end_inset
+
+: if 
+\begin_inset Formula $i\in\mathcal{P}$
+\end_inset
+
+ is in group 
+\begin_inset Formula $k\in\mathcal{G}$
+\end_inset
+
+; 
+\begin_inset Formula $y_{ij}$
+\end_inset
+
+: if 
+\begin_inset Formula $i\in\mathcal{P}$
+\end_inset
+
+ is in the same group as 
+\begin_inset Formula $j\in\mathcal{P}$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \sum_{i,j}a_{i,j}y_{i,j}\\
+\text{s.t.} & \sum_{k\in\mathcal{G}}x_{i,k}=1 & \forall i\in\mathcal{P}\\
+ & \sum_{i\in\mathcal{P}}x_{i,k}=8 & \forall k\in\mathcal{G}\\
+ & y_{i,j}\geq x_{i,k}+x_{j,k}-1 & \forall i\in\mathcal{P},\forall j\in\mathcal{P},\forall k\in\mathcal{G}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5495,6 +5855,73 @@ Reformulate the planning problem when adding the following constraint: the
 \end_layout
 
 \begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model (
+\begin_inset Formula $x_{t}$
+\end_inset
+
+: production at time 
+\begin_inset Formula $t$
+\end_inset
+
+; 
+\begin_inset Formula $s_{t}$
+\end_inset
+
+: storage at time 
+\begin_inset Formula $t$
+\end_inset
+
+; 
+\begin_inset Formula $\mathrm{on}_{t}$
+\end_inset
+
+: furnace used at time 
+\begin_inset Formula $t$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \sum_{t\in\mathcal{T}}\left(c_{t}\,x_{t}+f_{t}\,\mathrm{on}_{t}+h_{t}\,s_{t}\right)\\
+\text{s.t.} & s_{t+1}=s_{t}+x_{t}-d_{t} & \forall t\in\mathcal{T}\\
+ & s_{1}=0\\
+ & x_{t}\leq M\,\mathrm{on}_{t}, & \forall t\in\mathcal{T}\\
+ & M=\sum_{\tau\in\mathcal{T}}d_{\tau}
+\end{array}
+\]
+
+\end_inset
+
+With the blast furnace constraint, add the following constraints:
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\sum_{i=t}^{t+4}\mathrm{on}_{i}\leq4 & \forall t\in\left[1,12-4\right]\\
+\mathrm{start}_{t}\geq\mathrm{on}_{t-1}+\mathrm{on}_{t} & \forall t\in\left[\mathbf{2},12\right]\\
+\mathrm{start}_{1}=\mathrm{on}_{1}\\
+\mathrm{on}_{t}\geq\mathrm{start}_{t} & \forall t\in\left[1,12\right]\\
+\mathrm{on}_{t+1}\geq\mathrm{start}_{t} & \forall t\in\left[1,12-1\right]\\
+\mathrm{on}_{t+2}\geq\mathrm{start}_{t} & \forall t\in\left[1,12-2\right]
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Branch TA
 inverted 0
 status collapsed
@@ -5610,7 +6037,7 @@ Bound on the production (at most, produce everything in one period), linked
 , can produce something): 
 \begin_inset Formula 
 \[
-x_{t}\leq M\,\mathrm{on}_{t},\qquad M=\sum_{\tau\in\mathcal{T}}d_{\tau},\qquad\forall t\in\in\left[1,12\right].
+x_{t}\leq M\,\mathrm{on}_{t},\qquad M=\sum_{\tau\in\mathcal{T}}d_{\tau},\qquad\forall t\in\mathcal{T}.
 \]
 
 \end_inset
@@ -5816,6 +6243,36 @@ For the rest of the food-processing supply chain, some quantity of ground
 \begin_layout Standard
 Formulate this problem as a mixed-integer linear program.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model:
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\min & \mathrm{abs\Delta}\\
+\text{s.t.} & \mathrm{weight}=\sum_{t\in\mathcal{T}}\mathrm{weight}_{t}\,\mathrm{selected}_{t}\\
+ & 95\,\mathrm{weight}_{\mathrm{target}}\leq\mathrm{weigth}\leq1.05\,\mathrm{weight}_{\mathrm{target}}\\
+ & \mathrm{fat}=\sum_{t\in\mathcal{T}}\mathrm{fat}_{t}\,\mathrm{selected}_{t}\\
+ & \Delta=\mathrm{fat}-\mathrm{fat}_{\mathrm{target}}\\
+ & \mathrm{abs\Delta}\geq\Delta\\
+ & \mathrm{abs\Delta}\geq-\Delta
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6070,6 +6527,38 @@ We also want to impose that, each time a plant starts, it needs to run for
 \begin_layout Standard
 Formulate the problem of minimizing the costs of the producer while satisfying
  the demand as a mixed-integer program.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model:
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \sum_{\substack{t\in\mathcal{T}\\
+i\in\mathcal{P}
+}
+}\left(f_{i}\,\mathrm{on}_{t,i}+p_{i}\,\mathrm{power}_{t,i}+g_{i}\,\mathrm{start}_{t,i}\right)\\
+\text{s.t.} & \mathrm{power}_{i,t}\leq P_{i}^{\mathrm{max}}\,\mathrm{on}_{i,t} & \forall i\in\mathcal{P},\forall t\in\mathcal{T}\\
+ & \sum_{i\in\mathcal{P}}\mathrm{power}_{i,t}=d_{t} & \forall t\in\mathcal{T}\\
+ & \mathrm{start}_{t,i}\geq\mathrm{on}_{t,i}-\mathrm{on}_{t-1,i} & \forall i\in\mathcal{P},\forall t\in\mathcal{T}\\
+ & \mathrm{on}_{0,i}=0 & \forall i\in\mathcal{P}\\
+ & \mathrm{on}_{\tau,i}\geq\mathrm{start}_{t,i} & \forall i\in\mathcal{P},\forall t\in\mathcal{T},\forall\tau\in\left[t,t+3\right]\cap\mathcal{T}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6337,6 +6826,31 @@ A gang of thieves is stealing objects in a house.
 \begin_layout Standard
 Model this problem as a mixed integer linear program.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model:
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\max & \sum_{i\in\mathcal{O}}v_{i}\,x_{i}\\
+\text{s.t.} & \sum_{i\in\mathcal{O}}w_{i}\,x_{i}\leq W
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -10112,6 +10626,32 @@ How to model the constraint that the variable
 \end_layout
 
 \begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+If 
+\begin_inset Formula $m\in\mathbb{R}_{0}^{+}$
+\end_inset
+
+ is the maximum value for 
+\begin_inset Formula $x$
+\end_inset
+
+: 
+\begin_inset Formula $x\leq m\,y$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Branch TA
 inverted 0
 status collapsed
@@ -10223,6 +10763,29 @@ How to model the constraint that the variable
 \end_inset
 
 ? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Add a binary variable 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Then: 
+\begin_inset Formula $m\,y\leq x\leq M\,y$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -10345,7 +10908,24 @@ How does your solution behave for
 \begin_inset Formula $y=50$
 \end_inset
 
-? 
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+\begin_inset Formula $50\,y\leq x\leq50+50\,y$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -11160,6 +11740,71 @@ name "tab:Modelling-thresholds-PWL"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Decompose 
+\begin_inset Formula $x$
+\end_inset
+
+ as sixteen continuous variables 
+\begin_inset Formula $\xi_{i}\in\left[0,1\right]$
+\end_inset
+
+: 
+\begin_inset Formula $x=\sum_{i=1}^{16}x_{i}\,\xi_{i}$
+\end_inset
+
+.
+ Defined sixteen binary variables 
+\begin_inset Formula $\zeta_{i}$
+\end_inset
+
+.
+ Then,
+\begin_inset Formula 
+\[
+y=\sum_{i=1}^{16}f\!\left(x_{i}\right)\,\xi_{i},\qquad\sum_{i=1}^{16}\zeta_{i}\leq2,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\xi_{i}\leq\zeta_{i},\qquad\forall i\in\left[1,16\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\zeta_{i}+\zeta_{j}\leq1\qquad\forall i\in\left[1,16\right],\quad\forall j\in\left[1,16\right]\quad\text{if }\left|i-j\right|\geq2
+\]
+
+\end_inset
+
+For a better model, see for instance 
+\begin_inset CommandInset href
+LatexCommand href
+name "Nonconvex piecewise linear functions: Advanced formulations and simple modeling tools"
+target "http://www.mit.edu/~jvielma/publications/nonconvex-piecewise-linear-functions.pdf"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Branch TA
 inverted 0
 status collapsed
@@ -11251,8 +11896,8 @@ Logarithmic formulation
 
 \begin_layout Standard
 Idea: instead of using a unary encoding of the chosen point, go to binary.
- See Vielma.
- 
+ Reference: http://www.mit.edu/~jvielma/publications/nonconvex-piecewise-linear-fu
+nctions.pdf
 \end_layout
 
 \end_inset
@@ -11341,6 +11986,84 @@ variance
  of the level and presence of each gender must be as low as possible (the
  objective must remain linear).
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model (
+\begin_inset Formula $x_{ij}$
+\end_inset
+
+: player 
+\emph on
+
+\begin_inset Formula $i\in\mathcal{P}$
+\end_inset
+
+
+\emph default
+ in team 
+\begin_inset Formula $j\in\mathcal{T}$
+\end_inset
+
+; 
+\begin_inset Formula $n_{jk}$
+\end_inset
+
+: number of players of level 
+\begin_inset Formula $k\in\mathcal{L}$
+\end_inset
+
+ in team 
+\begin_inset Formula $j\in\mathcal{T}$
+\end_inset
+
+; 
+\begin_inset Formula $h_{jk}$
+\end_inset
+
+: whether team 
+\begin_inset Formula $j\in\mathcal{T}$
+\end_inset
+
+ has at least a player of level 
+\begin_inset Formula $k\in\mathcal{L}$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+\begin{array}{cccc}
+\min & \Delta_{j}^{a,\mathrm{lvl}}+\Delta_{j}^{a,\mathrm{M}}+\Delta_{j}^{a,\mathrm{W}}\\
+\text{s.t.} & \sum_{j\in\mathcal{T}}x_{ij}=1 & \forall i\in\mathcal{P}\\
+ & \sum_{i\in\mathcal{P}}x_{ij}=6 & \forall j\in\mathcal{T}\\
+ & \sum_{i\in\mathcal{P}}m_{i}\,x_{ij}\geq2 & \forall j\in\mathcal{T}\\
+ & \sum_{i\in\mathcal{P}}\left(1-m_{i}\right)\,x_{ij}\geq2 & \forall j\in\mathcal{T}\\
+ & n_{jk}=\sum_{i\in\mathcal{P}}x_{ij}\,l_{ik} & \forall j\in\mathcal{T},\forall k\in\mathcal{L}\\
+ & h_{jk}\leq n_{jk} & \forall j\in\mathcal{T},\forall k\in\mathcal{L}\\
+ & n_{jk}\leq M\,h_{jk} & \forall j\in\mathcal{T},\forall k\in\mathcal{L} & M=6\\
+ & \sum_{k\in\mathcal{L}}h_{jk}\geq3 & \forall j\in\mathcal{T}\\
+\\
+ & \mathrm{lvl}_{j}=\sum_{k\in\mathcal{L}}k\,n_{jk} & \forall j\in\mathcal{T} & \text{same for M, W}\\
+ & \left|\mathcal{T}\right|\,\overline{\mathrm{lvl}}=\sum_{j\in\mathcal{T}}\mathrm{lvl}_{j} &  & \text{same for M, W}\\
+ & \Delta_{j}=\mathrm{lvl}_{j}-\overline{\mathrm{lvl}} & \forall j\in\mathcal{T} & \text{same for M, W}\\
+ & \Delta_{j}^{a}\geq\Delta_{j} & \forall j\in\mathcal{T} & \text{same for M, W}\\
+ & \Delta_{j}^{a}\geq-\Delta_{j} & \forall j\in\mathcal{T} & \text{same for M, W}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -11670,7 +12393,7 @@ variance
 \end_inset
 
 Developments for only one criterion (say, level).
- New variables: 
+ New variables:
 \end_layout
 
 \begin_layout Itemize
@@ -11721,7 +12444,7 @@ Constraints:
 Define level of a team: 
 \begin_inset Formula 
 \[
-\mathrm{lvl}_{j}=\sum_{k\in\mathcal{L}}k\,n_{jk},\qquad\forall jj\in\mathcal{T}.
+\mathrm{lvl}_{j}=\sum_{k\in\mathcal{L}}k\,n_{jk},\qquad\forall j\in\mathcal{T}.
 \]
 
 \end_inset
@@ -11730,14 +12453,10 @@ Define level of a team:
 \end_layout
 
 \begin_layout Itemize
-Define average level (
-\begin_inset Formula $T$
-\end_inset
-
- being the number of teams): 
+Define average level: 
 \begin_inset Formula 
 \[
-T\,\overline{\mathrm{lvl}}=\sum_{jj\in\mathcal{T}}\mathrm{lvl}_{j}.
+\left|\mathcal{T}\right|\,\overline{\mathrm{lvl}}=\sum_{j\in\mathcal{T}}\mathrm{lvl}_{j}.
 \]
 
 \end_inset
@@ -11749,7 +12468,7 @@ T\,\overline{\mathrm{lvl}}=\sum_{jj\in\mathcal{T}}\mathrm{lvl}_{j}.
 Define the signed difference: 
 \begin_inset Formula 
 \[
-\Delta_{j}=\mathrm{lvl}_{j}-\overline{\mathrm{lvl}},\qquad\forall jj\in\mathcal{T}.
+\Delta_{j}=\mathrm{lvl}_{j}-\overline{\mathrm{lvl}},\qquad\forall j\in\mathcal{T}.
 \]
 
 \end_inset
@@ -11762,6 +12481,18 @@ Define the absolute value:
 \begin_inset Formula 
 \[
 \Delta_{j}^{a}\geq\Delta_{j},\qquad\Delta_{j}^{a}\geq-\Delta_{j},\qquad\forall j\in\mathcal{T}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Objective (just for the level; sum the other components): 
+\begin_inset Formula 
+\[
+\min\Delta_{j}^{a}
 \]
 
 \end_inset
@@ -11796,7 +12527,31 @@ Write a mixed-integer linear optimisation program that computes the greatest
 \end_inset
 
 , two non-zero natural numbers.
- 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model:
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\min & A\\
+\text{s.t.} & a\,B=A\,b
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -11966,6 +12721,56 @@ To help him solve such problems quickly, your notary would like an automated
  these deficiencies.
  What amount should you bill him (100€ per hour, including all taxes) and
  what ideas can you present to justify your salary? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+You can use the following model:
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \sum_{j\in\mathcal{C}}z_{j}\\
+\text{s.t.} & z_{j}\geq s_{j} & \forall j\in\mathcal{C}\\
+ & z\geq-s_{j} & \forall j\in\mathcal{C}\\
+ & \underbrace{\sum_{i\in\mathcal{O}}x_{i}\,w_{ij}}_{\substack{\mathrm{what\,the\,first}\\
+\mathrm{person\,has}
+}
+}+s_{j}=\overline{w}_{j} & \forall j\in\mathcal{C}
+\end{array}
+\]
+
+\end_inset
+
+The LP relaxation of this model never gives an integer solution; moreover,
+ its value is always zero.
+ The solver must perform many branch before having a nonzero objective value.
+\begin_inset Newline newline
+\end_inset
+
+With several persons: 
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \sum_{j\in\mathcal{C}}z_{j}\\
+\text{s.t.} & z_{j}\geq s_{j} & \forall j\in\mathcal{C}\\
+ & z\geq-s_{j} & \forall j\in\mathcal{C}\\
+ & \sum_{k\in\mathcal{P}}x_{ik}=1 & \forall i\in\mathcal{O}\\
+ & \sum_{i\in\mathcal{O}}x_{i}\,w_{ij}+s_{j}=\overline{w}_{j} & \forall j\in\mathcal{C}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -24327,7 +25132,14 @@ By reversing the dynamic equation, both objects
 \end_layout
 
 \begin_layout Subsection
-Knapsacks
+Knapsacks 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Dynamic-programming-Knapsack-Advanced"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
