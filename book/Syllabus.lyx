@@ -134,7 +134,7 @@ Version history
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="20" columns="3">
+<lyxtabular version="3" rows="21" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="1.5cm">
 <column alignment="center" valignment="top" width="2.5cm">
@@ -1088,7 +1088,7 @@ Update the Julia tutorial to 1.0+, JuMP to 0.19+
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1097,7 +1097,7 @@ Update the Julia tutorial to 1.0+, JuMP to 0.19+
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1106,7 +1106,7 @@ Update the Julia tutorial to 1.0+, JuMP to 0.19+
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1144,6 +1144,45 @@ noprefix "false"
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Flows-Solve-feasible-flows-Transformation-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28 March 2022
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Added exercise 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Flow-problems-Modelling-Warehouse-cart"
 plural "false"
 caps "false"
 noprefix "false"
@@ -32023,6 +32062,245 @@ Lot sizing as flow feasibility.
 \end_layout
 
 \begin_layout Subsection
+Warehouse-cart management 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Flow-problems-Modelling-Warehouse-cart"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Some logistic operators handle many small packages: they must be transferred
+ between hubs, from the origin to the destination of each package.
+ However, loading and unloading trucks holding only these little parcels
+ takes an enormous amount of time.
+ Therefore, most operators tend to group them in carts: one cart contains
+ many such boxes; carts are moved one by one.
+ 
+\end_layout
+
+\begin_layout Standard
+Once the carts have reached their final destination, they are emptied and
+ are ready for the next use.
+ Nevertheless, the load between hubs is not homogeneous: some of them receive
+ many more packages than they send (typically, near large cities) and others
+ have the reverse pattern (mostly, close to factories).
+ Carts must then be rebalanced at the end of each rotation, so that empty
+ ones are available where they are needed.
+ Therefore, each hub has a given amount of carts available (due to lorries
+ unloading them) and another amount of carts needed (because trucks will
+ load them the following day).
+ 
+\end_layout
+
+\begin_layout Standard
+A truck can only load some number of carts; while this number is relatively
+ large, rebalancing between hubs may require more than one lorry.
+ Trucks cannot travel between any pair of hubs: they have fixed routes,
+ so that their drivers always go back home at the end of each day.
+\end_layout
+
+\begin_layout Standard
+Supposing that the need for carts is perfectly known: 
+\end_layout
+
+\begin_layout Enumerate
+Is there always a feasible solution to this problem?
+\end_layout
+
+\begin_layout Enumerate
+Formulate the problem of rebalancing carts as a feasible flow problem, i.e.
+ the problem of finding the number of carts and the number of trucks that
+ must travel along the existing routes.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Formulate this problem as a linear mixed-integer optimization problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+Use two nodes per hub, plus a source and a destination.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch TA
+inverted 0
+status open
+
+\begin_layout Subsubsection
+Solution
+\end_layout
+
+\begin_layout Standard
+There is not always a feasible solution to this problem, as the routes are
+ fixed in advance, in the case the unbalance is too high with respect to
+ the needs of the previous day.
+\end_layout
+
+\begin_layout Standard
+Notations: 
+\begin_inset Formula $a_{h}$
+\end_inset
+
+ is the number of carts available at hub 
+\begin_inset Formula $h$
+\end_inset
+
+, 
+\begin_inset Formula $d_{h}$
+\end_inset
+
+ is the demand in carts of hub 
+\begin_inset Formula $h$
+\end_inset
+
+, 
+\begin_inset Formula $C$
+\end_inset
+
+ is the capacity of a lorry in carts, 
+\begin_inset Formula $n_{hi}$
+\end_inset
+
+ is the number of trucks following the route from 
+\begin_inset Formula $h$
+\end_inset
+
+ to 
+\begin_inset Formula $i$
+\end_inset
+
+ on the way back (potentially zero if no lorry uses this route).
+ All these numbers are integers.
+\end_layout
+
+\begin_layout Standard
+Two nodes per hub 
+\begin_inset Formula $h$
+\end_inset
+
+ (
+\begin_inset Formula $s_{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{h}$
+\end_inset
+
+), plus a source 
+\begin_inset Formula $s$
+\end_inset
+
+ and a destination 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ Edges from 
+\begin_inset Formula $s$
+\end_inset
+
+ to an origin hub 
+\begin_inset Formula $s_{h}$
+\end_inset
+
+ have a maximum capacity, the number of available carts at 
+\begin_inset Formula $h$
+\end_inset
+
+, 
+\begin_inset Formula $a_{h}$
+\end_inset
+
+.
+ Edges between origin hub 
+\begin_inset Formula $s_{h}$
+\end_inset
+
+ and destination hub 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ exist only if the corresponding route exists; the capacity of this edge
+ is limited by the number of trucks for this route (times the capacity of
+ each truck), i.e.
+ 
+\begin_inset Formula $C\,n_{ji}$
+\end_inset
+
+.
+ Edges from each hub 
+\begin_inset Formula $t_{h}$
+\end_inset
+
+ to the destination 
+\begin_inset Formula $t$
+\end_inset
+
+ have a minimum capacity of the required number of carts at the destination,
+ 
+\begin_inset Formula $d_{h}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 9_modelling_carts.pdf
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cart rebalancing as flow feasibility.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 * Character design 
 \begin_inset CommandInset label
 LatexCommand label
@@ -33180,7 +33458,7 @@ A feasible flow is: 5 units in
 \begin_layout Standard
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Subsubsection
 Solution
