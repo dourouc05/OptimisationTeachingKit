@@ -94,7 +94,7 @@ theorems-sec-bytype
 \begin_body
 
 \begin_layout Title
-Discrete Optimisation: Exercises Book
+Discrete Optimisation with Julia: Exercises Book
 \begin_inset Newline newline
 \end_inset
 
@@ -112,7 +112,7 @@ With solutions
 
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Standard
 With complete solutions
@@ -1275,11 +1275,10 @@ Julia is often compared to MATLAB: their syntax is similar.
 \end_layout
 
 \begin_layout Standard
-Its main disadvantage is that the language and its interpreter are not mature
- yet: they still have to reach version 1.0, with a well-defined and stable
- syntax.
- It was created in 2012, and the vast majority of the syntax is there to
- last, but there may still be some changes between minor versions.
+Its main disadvantage is that the language and its interpreter are not as
+ mature as other projects; however, Julia has reached a stable version,
+ with a well-defined and stable syntax.
+ It was created in 2012.
  Also, Julia core developers tend to keep the base functionalities (i.e.
  without external packages) to a minimum: for example, there is no built-in
  plotting facility, the user must install some packages on the side; as
