@@ -1170,7 +1170,7 @@ noprefix "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-28 March 2022
+14 May 2022
 \end_layout
 
 \end_inset
@@ -1179,10 +1179,20 @@ noprefix "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-Added exercise 
+Added exercises 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Flow-problems-Modelling-Warehouse-cart"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Graph-Operation-scheduling"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14537,6 +14547,266 @@ In this case, when the node is taken (
 \end_layout
 
 \end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation scheduling 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Modelling-Graph-Operation-scheduling"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When synthesising hardware circuits (such as processors), a common need
+ is to schedule the operations to perform.
+ For instance, to sum up three numbers, the sum of two of them must be computed
+ first; this partial result can then be added to the third number to get
+ the final result.
+ 
+\end_layout
+
+\begin_layout Standard
+The dependencies between operations is modelled as a graph: each operation
+ is a node, edges are created between an operation 
+\begin_inset Formula $o$
+\end_inset
+
+ and operations 
+\begin_inset Formula $o^{\prime}$
+\end_inset
+
+ whose results are needed to compute 
+\begin_inset Formula $o$
+\end_inset
+
+.
+ Cycles are not allowed in the graph: they would indicate that an operation
+ needs its own result before computing its result.
+\end_layout
+
+\begin_layout Standard
+Not all operations take the same time to execute: usually, addition takes
+ only a few cycles, while multiplication is slower, and division even slower.
+ Thus, the transition from an operation to the next one has a latency, expressed
+ as an integer number of cycles.
+\end_layout
+
+\begin_layout Standard
+Formulate the problem of scheduling hardware operations with the objective
+ of minimising the time when the last operation is executed as a mixed-integer
+ linear program.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2_5_operation_scheduling.svg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Operation scheduling: example graph.
+ This image in an excerpt of 
+\begin_inset CommandInset href
+LatexCommand href
+name "LLVM's CIRCT project"
+target "https://circt.llvm.org/docs/Scheduling/"
+literal "false"
+
+\end_inset
+
+ and is released under an Apache 2.0 license.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+The last operation can be computed before the MIP formulation is generated
+ as the only operation on which no operation depends.
+ Denote this operation by the index 
+\begin_inset Formula $\ell$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & t_{\ell}\\
+\text{s.t.} & t_{t}\geq t_{s}+l_{s} & \forall\left(s,t\right)\in\mathcal{D}\\
+ & t_{o}\in\mathbb{N}, & \forall o\in\mathcal{O}.
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch TA
+inverted 0
+status open
+
+\begin_layout Subsubsection
+Model
+\end_layout
+
+\begin_layout Standard
+Sets: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+: the set of operations to perform; the last operation is the element 
+\begin_inset Formula $\ell\in\mathcal{O}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+: the set of dependencies between operations, with 
+\begin_inset Formula $\mathcal{D}\subset\mathcal{O}\times\mathcal{O}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(o,o\right)\not\in\mathcal{D}$
+\end_inset
+
+ for 
+\begin_inset Formula $o\in\mathcal{O}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Data: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $l_{o}\in\mathbb{N}_{0}$
+\end_inset
+
+ for 
+\begin_inset Formula $o\in\mathcal{O}$
+\end_inset
+
+: the time to compute the operation 
+\begin_inset Formula $o$
+\end_inset
+
+, i.e.
+ its latency
+\end_layout
+
+\begin_layout Standard
+Variable:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $t_{o}\in\mathbb{N}$
+\end_inset
+
+: the starting time for operation 
+\begin_inset Formula $o\in O$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Objective:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\min t_{\ell}
+\]
+
+\end_inset
+
+Constraints:
+\end_layout
+
+\begin_layout Itemize
+The operation 
+\begin_inset Formula $t$
+\end_inset
+
+ can only start when a dependent operation 
+\begin_inset Formula $s$
+\end_inset
+
+ has finished its computation:
+\begin_inset Formula 
+\[
+t_{t}\geq t_{s}+l_{s},\qquad\forall\left(s,t\right)\in\mathcal{D}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "This model is currently implemented in LLVM's CIRCT"
+target "https://github.com/llvm/circt/blob/main/lib/Scheduling/LPSchedulers.cpp#L24-L79"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
 \end_inset
 
 
