@@ -30,7 +30,7 @@ For now, the book is useable, but can be perfected in many places.
 
 ## Licensing information
 
-OptimisationTeachingKit (c) by Thibaut Cuvelier
+OptimisationTeachingKit (c) by Thibaut Cuvelier.
 It builds upon previous work by Sébastien Mathieu and Laurent Poirrier, 
 albeit it has been greatly enhanced and rewritten since. 
 
