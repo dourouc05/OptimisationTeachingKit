@@ -1199,7 +1199,8 @@ noprefix "false"
 
 \end_inset
 
-
+.
+ Update JuMP to 1.0
 \end_layout
 
 \end_inset
@@ -1875,6 +1876,19 @@ Create a
 \end_layout
 
 \begin_layout Exercise
+
+\series bold
+Hint.
+
+\series default
+ The 
+\family typewriter
+LinearAlgebra
+\family default
+ standard package has features to create specific matrices.
+\end_layout
+
+\begin_layout Exercise
 \begin_inset Branch solution
 inverted 0
 status open
@@ -2001,6 +2015,19 @@ c
 \family default
 .
  
+\end_layout
+
+\begin_layout Exercise
+
+\series bold
+Hint.
+
+\series default
+ An aptly named function is available in the standard package 
+\family typewriter
+LinearAlgebra
+\family default
+.
 \end_layout
 
 \begin_layout Exercise
@@ -2422,7 +2449,7 @@ find
 \begin_layout Exercise
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Solution*
 \begin_inset space ~
@@ -3137,10 +3164,10 @@ add JuMP Cbc
 \end_layout
 
 \begin_layout Standard
-Then, before attempting to plot, import the JuMP package with a solver with
- 
+Then, before attempting to solve optimisation programs, import the JuMP
+ package with a solver with 
 \family typewriter
-using JuMP; using Cbc
+using JuMP; using Cbc; using LinearAlgebra
 \family default
 .
  
@@ -3236,9 +3263,9 @@ Model
 \begin_inset Newline newline
 \end_inset
 
-You must provide a solver factory 
+You must provide a solver 
 \family typewriter
-with_optimizer(Cbc.Optimizer)
+Cbc.Optimizer
 \family default
  when calling 
 \family typewriter
@@ -3291,7 +3318,7 @@ value
 \begin_layout Exercise
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Solution*
 \begin_inset space ~
@@ -3308,7 +3335,7 @@ status open
 
 \begin_layout Plain Layout
 
-m = Model(with_optimizer(Cbc.Optimizer))
+m = Model(Cbc.Optimizer)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3445,7 +3472,7 @@ What is the value of
 \begin_layout Exercise
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Solution*
 \begin_inset space ~
@@ -3462,7 +3489,7 @@ status open
 
 \begin_layout Plain Layout
 
-m = Model(with_optimizer(Cbc.Optimizer))
+m = Model(Cbc.Optimizer)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3608,11 +3635,128 @@ Solve it.
  
 \end_layout
 
+\begin_layout Enumerate
+What is the optimal objective function?
+\end_layout
+
+\begin_layout Enumerate
+What is the value of 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{y}$
+\end_inset
+
+, and 
+\begin_inset Formula $\mathbf{z}$
+\end_inset
+
+? 
+\end_layout
+
+\begin_layout Enumerate
+What is the value of 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $z_{3}$
+\end_inset
+
+? 
+\end_layout
+
 \end_deeper
+\begin_layout Exercise
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Create a model with 
+\family typewriter
+Model
+\family default
+, 
+\family typewriter
+@variable
+\family default
+, 
+\family typewriter
+@constraint
+\family default
+, and 
+\family typewriter
+@objective
+\family default
+, as previously, using loops to create related constraints (whenever the
+ constraint is defined with a 
+\begin_inset Formula $\forall$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Use the function 
+\family typewriter
+optimize!
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Use the function 
+\family typewriter
+objective_value
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Use the function 
+\family typewriter
+value.
+
+\family default
+ with a vector.
+ The dot indicates that the operation must be broadcast on all elements
+ of the array.
+\end_layout
+
+\begin_layout Enumerate
+Use the function 
+\family typewriter
+value
+\family default
+ with vector elements.
+ There is no need for broadcasting for scalar values.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
 \begin_layout Exercise
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Solution*
 \begin_inset space ~
@@ -3653,7 +3797,7 @@ e = [5, 40, 20, 50]
 
 \begin_layout Plain Layout
 
-m = Model(with_optimizer(Cbc.Optimizer))
+m = Model(Cbc.Optimizer)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3723,6 +3867,11 @@ end
 @objective(m, Min, dot(c, y) + dot(d, x))
 \end_layout
 
+\begin_layout Plain Layout
+
+# The function dot is defined in LinearAlgebra.
+\end_layout
+
 \end_inset
 
 
@@ -3745,31 +3894,61 @@ objective_value(m)
 \begin_layout Enumerate
 
 \family typewriter
-value(x)
+value.(x)
 \family default
  gives 
 \family typewriter
 [50, 15, 50, 0]
-\end_layout
-
-\begin_layout Enumerate
-
+\family default
+, with some numerical leeway
 \family typewriter
-value(y)
+
+\begin_inset Newline newline
+\end_inset
+
+value.(y)
 \family default
  gives 
 \family typewriter
 [1, 1, 1, 0]
+\family default
+, with some numerical leeway
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+value.(z)
+\family default
+ gives 
+\family typewriter
+[45, 20, 50, 0]
+\family default
+, with some numerical leeway
 \end_layout
 
 \begin_layout Enumerate
 
 \family typewriter
-value(z)
+value(x[1])
 \family default
- gives 
+ gives 50, with some numerical leeway
 \family typewriter
-[45, 20, 50, 0]
+
+\begin_inset Newline newline
+\end_inset
+
+value(y[2])
+\family default
+ gives 1, with some numerical leeway
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+value(z[3])
+\family default
+ gives 50, with some numerical leeway
 \end_layout
 
 \end_deeper
@@ -15255,7 +15434,7 @@ status open
 
 \begin_layout Plain Layout
 
-m = Model(with_optimizer(Cbc.Optimizer))
+m = Model(Cbc.Optimizer)
 \end_layout
 
 \begin_layout Plain Layout
@@ -15317,7 +15496,7 @@ status open
 
 \begin_layout Plain Layout
 
-m = Model(with_optimizer(Cbc.Optimizer))
+m = Model(Cbc.Optimizer)
 \end_layout
 
 \begin_layout Plain Layout
@@ -15368,10 +15547,14 @@ optimize!(m)
 \begin_layout Standard
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Subsubsection
 Solution 1
+\end_layout
+
+\begin_layout Standard
+TODO
 \end_layout
 
 \begin_layout Subsubsection
