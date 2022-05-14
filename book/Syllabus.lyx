@@ -19222,7 +19222,7 @@ The following relationship holds:
 \begin_layout Standard
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Subsubsection
 Q1.
@@ -19973,6 +19973,14 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Numerical experiments
+\end_layout
+
+\begin_layout Standard
+TODO: write the code, run it.
 \end_layout
 
 \end_inset
