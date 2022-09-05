@@ -134,7 +134,7 @@ Version history
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="21" columns="3">
+<lyxtabular version="3" rows="22" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="1.5cm">
 <column alignment="center" valignment="top" width="2.5cm">
@@ -1157,7 +1157,7 @@ noprefix "false"
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1166,7 +1166,7 @@ noprefix "false"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1175,7 +1175,7 @@ noprefix "false"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1201,6 +1201,45 @@ noprefix "false"
 
 .
  Update JuMP to 1.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.13.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 September 2022
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Added exercise 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Graph-Network-design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -14828,7 +14867,7 @@ literal "false"
 \begin_layout Standard
 \begin_inset Branch solution
 inverted 0
-status open
+status collapsed
 
 \begin_layout Solution*
 The last operation can be computed before the MIP formulation is generated
@@ -14861,7 +14900,7 @@ The last operation can be computed before the MIP formulation is generated
 \begin_layout Standard
 \begin_inset Branch TA
 inverted 0
-status open
+status collapsed
 
 \begin_layout Subsubsection
 Model
@@ -14983,6 +15022,436 @@ literal "false"
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Multicommodity capacitated network design * 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Modelling-Graph-Network-design"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When creating their network, logistics companies have to decide, among a
+ set of already determined hubs, which lines they create between two hubs.
+ A given amount of trucks, boats, or planes can be assigned to each line.
+ These lines must withstand the expected load between all the hubs.
+ Hubs can be used for crossdocking, meaning that a vehicle can empty a part
+ of its load for another vehicle to pick it up and bring it closer to its
+ destination.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be the set of 
+\emph on
+commodities
+\emph default
+, i.e.
+ the set of flows through the network: each commodity 
+\begin_inset Formula $k$
+\end_inset
+
+ has a source hub 
+\begin_inset Formula $s_{k}\in V$
+\end_inset
+
+, a target hub 
+\begin_inset Formula $t_{k}\in V$
+\end_inset
+
+, and a demand 
+\begin_inset Formula $d_{k}\in\mathbb{R}_{0}^{+}$
+\end_inset
+
+ (expressed in tonnes).
+ Hubs are modelled as graph nodes 
+\begin_inset Formula $V$
+\end_inset
+
+ and lines as edges 
+\begin_inset Formula $E\subseteq V\times V$
+\end_inset
+
+ (if a line cannot be created between two hubs, it is not present in 
+\begin_inset Formula $E$
+\end_inset
+
+), within a directed graph.
+ Creating a line between 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ [with the arc 
+\begin_inset Formula $\left(i,j\right)\in E$
+\end_inset
+
+] has a fixed cost 
+\begin_inset Formula $f_{ij}$
+\end_inset
+
+; transporting a tonne between 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ has a unit cost 
+\begin_inset Formula $c_{ij}$
+\end_inset
+
+; the maximum number of vehicles on a line corresponds to a capacity 
+\begin_inset Formula $u_{ij}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Alternative statement
+\emph default
+.
+ In computer networks, telecommunication operators have to design the architectu
+re of their network to use the lowest amount of hardware while still being
+ able to transfer the expected amounts of data.
+ These amounts are encoded into a traffic matrix that gives a traffic (in
+ gigabytes per second) between two border points of the operator network
+ (the ingress and egress points).
+ Between these points, the operator deploys a number of routers connected
+ by several fibres to ingress and egress points, but also to other routers:
+ the traffic flowing into a router is redistributed into its connected neighbour
+s.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be the set of 
+\emph on
+commodities
+\emph default
+, i.e.
+ the set of flows through the network: each commodity 
+\begin_inset Formula $k$
+\end_inset
+
+ has an ingress point 
+\begin_inset Formula $s_{k}\in V$
+\end_inset
+
+, an egress point 
+\begin_inset Formula $t_{k}\in V$
+\end_inset
+
+, and a traffic 
+\begin_inset Formula $d_{k}\in\mathbb{R}_{0}^{+}$
+\end_inset
+
+ (expressed in gigabytes per second).
+ Routers are modelled as graph nodes 
+\begin_inset Formula $V$
+\end_inset
+
+ and fibre connections as edges 
+\begin_inset Formula $E\subseteq V\times V$
+\end_inset
+
+ (if a fibre cannot be deployed between two routers, it is not present in
+ 
+\begin_inset Formula $E$
+\end_inset
+
+), within a directed graph.
+ Deploying a fibre connection between 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ [with the arc 
+\begin_inset Formula $\left(i,j\right)\in E$
+\end_inset
+
+] has a fixed cost 
+\begin_inset Formula $f_{ij}$
+\end_inset
+
+; the maximum traffic on a fibre corresponds to a capacity 
+\begin_inset Formula $u_{ij}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Note*
+Compared to the first statement, there is no variable cost 
+\begin_inset Formula $c_{ij}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \sum_{\left(i,j\right)\in E}\sum_{k\in K}c_{ij}\,x_{ij}^{\left(k\right)}+\sum_{\left(i,j\right)\in E}f_{ij}\,y_{ij}\\
+\text{s.t.} & \sum_{j\in\delta^{+}\!\left(i\right)}x_{ij}^{\left(k\right)}-\sum_{j\in\delta^{-}\!\left(i\right)}x_{ij}^{\left(k\right)}=\begin{cases}
+d_{k} & \text{ if }i=s_{k}\\
+-d_{k} & \text{ if }i=t_{k}\\
+0 & \text{ otherwise}
+\end{cases} & \forall i\in V,\forall k\in K\\
+ & \sum_{k\in K}x_{ij}^{\left(k\right)}\leq u_{ij}\,y_{ij} & \forall\left(i,j\right)\in E\\
+ & x_{ij}^{\left(k\right)}\geq0 & \forall\left(i,j\right)\in E\\
+ & y_{ij}\in\left\{ 0,1\right\}  & \forall\left(i,j\right)\in E
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch TA
+inverted 0
+status open
+
+\begin_layout Subsubsection
+Model
+\end_layout
+
+\begin_layout Standard
+Sets:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $V$
+\end_inset
+
+: the set of vertices of the directed graph
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E$
+\end_inset
+
+: the set of edges of the directed graph, 
+\begin_inset Formula $E\subseteq V\times V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Data:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $c_{ij}\in\mathbb{R}_{0}^{+}$
+\end_inset
+
+ for 
+\begin_inset Formula $\left(i,j\right)\in E$
+\end_inset
+
+: cost of transporting one unit of flow through the edge 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $c_{ij}\in\mathbb{R}_{0}^{+}$
+\end_inset
+
+ for 
+\begin_inset Formula $\left(i,j\right)\in E$
+\end_inset
+
+: cost of opening the edge 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $u_{ij}\in\mathbb{R}_{0}^{+}$
+\end_inset
+
+ for 
+\begin_inset Formula $\left(i,j\right)\in E$
+\end_inset
+
+: capacity of the edge 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+, i.e.
+ maximum flow that 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+ can withstand in the direction from 
+\begin_inset Formula $i$
+\end_inset
+
+ to 
+\begin_inset Formula $j$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $d_{k}\in\mathbb{R}_{0}^{+}$
+\end_inset
+
+ for 
+\begin_inset Formula $k\in K$
+\end_inset
+
+: demand for commodity 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Variables:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $y_{ij}\in\left\{ 0,1\right\} $
+\end_inset
+
+ for 
+\begin_inset Formula $\left(i,j\right)\in E$
+\end_inset
+
+: whether the edge 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+ is included in the design
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{ij}^{\left(k\right)}\in\mathbb{R}^{+}$
+\end_inset
+
+ for 
+\begin_inset Formula $\left(i,j\right)\in E$
+\end_inset
+
+ and 
+\begin_inset Formula $k\in K$
+\end_inset
+
+: the flow through the edge 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+ for commodity 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Objective:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\min\sum_{\left(i,j\right)\in E}\sum_{k\in K}c_{ij}\,x_{ij}^{\left(k\right)}+\sum_{\left(i,j\right)\in E}f_{ij}\,y_{ij}
+\]
+
+\end_inset
+
+Constraints:
+\end_layout
+
+\begin_layout Itemize
+For each node 
+\begin_inset Formula $i\in V$
+\end_inset
+
+, the flow that goes in must go out, for each commodity, unless 
+\begin_inset Formula $i$
+\end_inset
+
+ is the source or the destination of the flow.
+ 
+\begin_inset Formula 
+\[
+\sum_{j\in\delta^{+}\!\left(i\right)}x_{ij}^{\left(k\right)}-\sum_{j\in\delta^{-}\!\left(i\right)}x_{ij}^{\left(k\right)}=\begin{cases}
+d_{k} & \text{ if }i=s_{k}\\
+-d_{k} & \text{ if }i=t_{k}\\
+0 & \text{ otherwise}
+\end{cases},\qquad\forall i\in V,\forall k\in K.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Arcs have a limited capacity.
+ Moreover, an arc can only be used if it is part of the design.
+ 
+\begin_inset Formula 
+\[
+\sum_{k\in K}x_{ij}^{\left(k\right)}\leq u_{ij}\,y_{ij},\qquad\forall\left(i,j\right)\in E.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
