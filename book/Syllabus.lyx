@@ -134,7 +134,7 @@ Version history
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="22" columns="3">
+<lyxtabular version="3" rows="23" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="1.5cm">
 <column alignment="center" valignment="top" width="2.5cm">
@@ -1207,7 +1207,7 @@ noprefix "false"
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1216,11 +1216,70 @@ noprefix "false"
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 October 2022
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Added exercises 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Graph-Network-design"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Puzzles-N-queens"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Puzzles-Knight-covering"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-5 September 2022
+0.13.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 November 2022
 \end_layout
 
 \end_inset
@@ -1232,7 +1291,7 @@ noprefix "false"
 Added exercise 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Modelling-Graph-Network-design"
+reference "subsec:Modelling-More-CPU-scheduling"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12182,6 +12241,529 @@ nctions.pdf
 \end_layout
 
 \begin_layout Section
+Puzzles
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Modelling-Puzzles"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $N$
+\end_inset
+
+ queens
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Modelling-Puzzles-N-queens"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $N$
+\end_inset
+
+-queens problem is about placing 
+\begin_inset Formula $N$
+\end_inset
+
+ queens in an 
+\begin_inset Formula $N\times N$
+\end_inset
+
+ grid such that no two queens can threaten each other.
+ The rules for queens are those of chess: a queen can attack another one
+ if they are on the same row, column, or diagonal.
+ 
+\end_layout
+
+\begin_layout Standard
+Write a mixed-integer linear program to solve the 
+\begin_inset Formula $N$
+\end_inset
+
+-queens problem.
+\end_layout
+
+\begin_layout Remark
+See also the CP counterpart: 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Constraint-programming-N-queens"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status collapsed
+
+\begin_layout Solution*
+\begin_inset Formula 
+\[
+\begin{array}{cccc}
+\text{find} & \text{a solution}\\
+\text{s.t.} & \sum_{i=1}^{N}x_{ij}=1 &  & \forall j\in\left\{ 1,2\dots N\right\} \\
+ & \sum_{j=1}^{N}x_{ij}=1 & \forall i\in\left\{ 1,2\dots N\right\} \\
+ & \sum_{\ell=1}^{N}x_{\ell\ell}=1\\
+ & \sum_{\ell=1}^{N-k}x_{\ell,k+\ell}=1 & \forall k\in\left\{ 1,2\dots N-1\right\} \\
+ & \sum_{\ell=1}^{N-k}x_{k+\ell,\ell}=1 & \forall k\in\left\{ 1,2\dots N-1\right\} \\
+ & \sum_{\ell=1}^{N}x_{\ell,N-\ell}=1\\
+ & \sum_{\ell=1}^{N-k}x_{\ell,N-k+\ell}=1 & \forall k\in\left\{ 1,2\dots N-1\right\} \\
+ & \sum_{\ell=1}^{N-k}x_{k+\ell,N-\ell}=1 & \forall k\in\left\{ 1,2\dots N-1\right\} \\
+ & \mathbf{x}_{i,j}\in\left\{ 0,1\right\}  & \forall i\in\left\{ 1,2\dots N\right\}  & \forall j\in\left\{ 1,2\dots N\right\} 
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch TA
+inverted 0
+status collapsed
+
+\begin_layout Subsubsection
+Solution
+\end_layout
+
+\begin_layout Standard
+Variables:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{i,j}=1$
+\end_inset
+
+ if there is a queen in square 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+, with both 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $i$
+\end_inset
+
+ in 
+\begin_inset Formula $\left\{ 1,2\dots N\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Constraints:
+\end_layout
+
+\begin_layout Itemize
+Queens can attack on columns: at most one queen per column.
+\begin_inset Formula 
+\[
+\sum_{i=1}^{N}x_{ij}\leq1,\qquad\forall j\in\left\{ 1,2\dots N\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Queens can attack on rows: at most one queen per row.
+\begin_inset Formula 
+\[
+\sum_{j=1}^{N}x_{ij}=1,\qquad\forall i\in\left\{ 1,2\dots N\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Queens can attack on diagonals: at most one queen per diagonal.
+ Divide the set of diagonals into six: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For the major diagonal: 
+\begin_inset Formula 
+\[
+\sum_{\ell=1}^{N}x_{\ell\ell}=1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For diagonals above the major: 
+\begin_inset Formula 
+\[
+\sum_{\ell=1}^{N-k}x_{\ell,k+\ell}=1,\qquad\forall k\in\left\{ 1,2\dots N-1\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For diagonals below the major: 
+\begin_inset Formula 
+\[
+\sum_{\ell=1}^{N-k}x_{k+\ell,\ell}=1,\qquad\forall k\in\left\{ 1,2\dots N-1\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For the minor diagonal:
+\begin_inset Formula 
+\[
+\sum_{\ell=1}^{N}x_{\ell,N-\ell}=1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For diagonals above the minor: 
+\begin_inset Formula 
+\[
+\sum_{\ell=1}^{N-k}x_{\ell,N-k+\ell}=1,\qquad\forall k\in\left\{ 1,2\dots N-1\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For diagonals below the minor:
+\begin_inset Formula 
+\[
+\sum_{\ell=1}^{N-k}x_{k+\ell,N-\ell}=1,\qquad\forall k\in\left\{ 1,2\dots N-1\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+It is more convenient to write computer code to generate these diagonals
+ instead of relying on summation signs.
+ For instance, in Julia with JuMP (
+\family typewriter
+x
+\family default
+ being the optimisation variable corresponding to 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\family typewriter
+m
+\family default
+ the JuMP model), using the fact that the minor diagonal is the major diagonal
+ of the vertically reverse matrix (
+\family typewriter
+reverse
+\family default
+):
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+for i in -(N - 1):(N-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+    @constraint(m,
+\end_layout
+
+\begin_layout Plain Layout
+
+        sum(diag(x, i)) <= 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+    @constraint(m,
+\end_layout
+
+\begin_layout Plain Layout
+
+        sum(diag(reverse(x; dims = 1), i)) <= 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+end
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Knight covering
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Modelling-Puzzles-Knight-covering"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The knight-covering problem is about placing as many knights in an 
+\begin_inset Formula $N\times N$
+\end_inset
+
+ grid as possible such that all squares are threatened by at least one knight
+ or occupied by one knight; interactions between knights are ignored.
+ The rules for knights are those of chess: its moves have an 
+\begin_inset Formula $L$
+\end_inset
+
+-shape, i.e.
+ two square vertically and one square horizontally, or the reverse.
+ 
+\end_layout
+
+\begin_layout Standard
+Write a mixed-integer linear program to solve the knight-covering problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+\begin_inset Formula 
+\[
+\begin{array}{cccc}
+\min & \sum_{i=1}^{N}\sum_{j=1}^{N}x_{ij}\\
+\text{s.t.} & x_{ij}+\sum_{\left(k,\ell\right)\in\mathcal{K}_{ij}}x_{k\ell}\geq1 & \forall i\in\left\{ 1,2\dots N\right\}  & \forall j\in\left\{ 1,2\dots N\right\} \\
+ & \mathbf{x}_{i,j}\in\left\{ 0,1\right\}  & \forall i\in\left\{ 1,2\dots N\right\}  & \forall j\in\left\{ 1,2\dots N\right\} 
+\end{array}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{K}_{ij}$
+\end_inset
+
+ is the set of moves of a knight at position 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\mathcal{K}_{ij}=\left\{ \left(k,\ell\right)\in\left\{ 1,2\dots N\right\} ^{2}\,\middle|\,\left|\left(k-i\right)\left(\ell-j\right)\right|=2\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch TA
+inverted 0
+status open
+
+\begin_layout Subsubsection
+Solution
+\end_layout
+
+\begin_layout Standard
+Variables:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{i,j}=1$
+\end_inset
+
+ if there is a knight in square 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+, with both 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $i$
+\end_inset
+
+ in 
+\begin_inset Formula $\left\{ 1,2\dots N\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Set:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{K}_{ij}$
+\end_inset
+
+: the set of moves of a knight at position 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{K}_{ij}=\left\{ \left(k,\ell\right)\in\left\{ 1,2\dots N\right\} ^{2}\,\middle|\,\left|\left(k-i\right)\left(\ell-j\right)\right|=2\right\} ,\qquad\forall\left(i,j\right)\in\left\{ 1,2\dots N\right\} ^{2}.
+\]
+
+\end_inset
+
+The constraint 
+\begin_inset Formula $\left|\left(k-i\right)\left(\ell-j\right)\right|=2$
+\end_inset
+
+ indicates that either 
+\begin_inset Formula $\left(k-i\right)$
+\end_inset
+
+ or 
+\begin_inset Formula $\left(\ell-j\right)$
+\end_inset
+
+ is equal to either 
+\begin_inset Formula $+2$
+\end_inset
+
+ or 
+\begin_inset Formula $-2$
+\end_inset
+
+: the other factor must then be equal to either 
+\begin_inset Formula $+1$
+\end_inset
+
+ or 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+ This property is correct because 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $j$
+\end_inset
+
+, 
+\begin_inset Formula $k$
+\end_inset
+
+, and 
+\begin_inset Formula $\ell$
+\end_inset
+
+ are all integers.
+\end_layout
+
+\begin_layout Standard
+Constraints:
+\end_layout
+
+\begin_layout Itemize
+Each square 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+ must either have one knight (
+\begin_inset Formula $x_{ij}=1$
+\end_inset
+
+) or be covered by any other knight moves (some 
+\begin_inset Formula $x_{k\ell}=1$
+\end_inset
+
+ for 
+\begin_inset Formula $\left(k,\ell\right)\in\mathcal{K}_{ij}$
+\end_inset
+
+).
+\begin_inset Formula 
+\[
+x_{ij}+\sum_{\left(k,\ell\right)\in\mathcal{K}_{ij}}x_{k\ell}\geq1,\qquad\forall i\in\left\{ 1,2\dots N\right\} ,\qquad\forall j\in\left\{ 1,2\dots N\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 More modelling 
 \begin_inset CommandInset label
 LatexCommand label
@@ -12995,7 +13577,7 @@ To help him solve such problems quickly, your notary would like an automated
  Impressed with your pedagogical skills and explanations, he proposes you
  a consulting job to implement an enhanced version of your model that solves
  these deficiencies.
- What amount should you bill him (100€ per hour, including all taxes) and
+ What amount should you bill him (€100 per hour, including all taxes) and
  what ideas can you present to justify your salary? 
 \end_layout
 
@@ -13052,7 +13634,7 @@ With several persons:
 \begin_layout Standard
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Subsubsection
 
@@ -14302,6 +14884,685 @@ We generalize the problem for
 
 \begin_layout Standard
 Model this problem as a mixed-integer linear program.
+\end_layout
+
+\begin_layout Subsection
+CPU scheduling 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Modelling-More-CPU-scheduling"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Scheduling tasks on a supercomputer typically requires user to specify parameter
+s about their jobs in advance: number of cores, total execution time, amount
+ of RAM and disk space; users are expected to know precisely their needs.
+ This way, the supercomputer administrator can schedule jobs to use the
+ machine near 100% of its capacity, thereby justifying the high buying costs
+ of this kind of hardware.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Slurm"
+target "https://slurm.schedmd.com/"
+literal "false"
+
+\end_inset
+
+ is a software scheduler that uses this information to maximise usage of
+ the cluster.
+\end_layout
+
+\begin_layout Standard
+Scheduling services on private cloud infrastructure is similar, with the
+ difference that these services must always be running and ready to accept
+ new requests.
+ Acknowledging the higher uncertainty in the server load (because service
+ usage cannot be predicted with a high level of confidence), the goal is
+ not to use the available machines to their full capacity, but rather to
+ spread the load among them.
+ A typical objective function is to minimise the maximum load.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Formulate the problem of job scheduling on private cloud infrastructure,
+ considering only CPU usage, as a mixed-integer program.
+\end_layout
+
+\begin_layout Enumerate
+Formulate the problem of job scheduling on supercomputers, considering only
+ the processing time (an integer value), as a mixed-integer program.
+ Maximising the usage of the cluster is equivalent to having the last task
+ executed as soon as possible (an objective also called 
+\emph on
+makespan minimisation
+\emph default
+).
+ The problem is sometimes called 
+\emph on
+open-shop scheduling
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch solution
+inverted 0
+status open
+
+\begin_layout Solution*
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\min & \ell_{\max}\\
+\text{s.t.} & \sum_{m\in\mathcal{M}}x_{m,t}=1 & \forall t\in\mathcal{T}\\
+ & \ell_{m}=\sum_{t\in\mathcal{T}}r_{t}\,x_{m,t} & \forall m\in\mathcal{M}\\
+ & \ell_{\max}\geq\ell_{m} & \forall m\in\mathcal{M}\\
+ & \ell_{m}\geq0 & \forall m\in\mathcal{M}\\
+ & \ell_{\max}\geq0\\
+ & x_{m,t}\in\left\{ 0,1\right\}  & \forall m\in\mathcal{M},\forall t\in\mathcal{T}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch TA
+inverted 0
+status open
+
+\begin_layout Subsubsection
+Solution for supercomputer scheduling
+\end_layout
+
+\begin_layout Standard
+Variables:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $t_{\max}\in\mathbb{N}$
+\end_inset
+
+: the makespan
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{m,t}=1$
+\end_inset
+
+ if task 
+\begin_inset Formula $t\in\mathcal{T}$
+\end_inset
+
+ is scheduled on machine 
+\begin_inset Formula $m\in\mathcal{M}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $s_{m,t}\in\mathbb{N}$
+\end_inset
+
+: the start time of task 
+\begin_inset Formula $t\in\mathcal{T}$
+\end_inset
+
+ on machine 
+\begin_inset Formula $m\in\mathcal{M}$
+\end_inset
+
+, 0 if the task 
+\begin_inset Formula $t$
+\end_inset
+
+ is not scheduled on machine 
+\begin_inset Formula $m$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $s_{m,t}+p_{t}$
+\end_inset
+
+ is the end time of the task if it is scheduled on 
+\begin_inset Formula $m$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $z_{t_{1},t_{2},m}\in\left\{ 0,1\right\} $
+\end_inset
+
+: 1 if task 
+\begin_inset Formula $t_{1}\in\mathcal{T}$
+\end_inset
+
+ is executed before task 
+\begin_inset Formula $t_{2}\in\mathcal{T}$
+\end_inset
+
+ on machine 
+\begin_inset Formula $m\in\mathcal{M}$
+\end_inset
+
+ (i.e.
+ if 
+\begin_inset Formula $x_{m,t_{1}}=1$
+\end_inset
+
+, 
+\begin_inset Formula $x_{m,t_{2}}=1$
+\end_inset
+
+, and 
+\begin_inset Formula $s_{m,t_{1}}<s_{m,t_{2}}$
+\end_inset
+
+), 0 otherwise
+\end_layout
+
+\begin_layout Standard
+Set:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+: the set of tasks
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+: the set of machines
+\end_layout
+
+\begin_layout Standard
+Data:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p_{t}\in\mathbb{N}$
+\end_inset
+
+: processing time of task 
+\begin_inset Formula $t\in\mathcal{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $M=\sum_{t\in\mathcal{T}}p_{t}$
+\end_inset
+
+, a bound on the value of 
+\begin_inset Formula $s_{m,t}$
+\end_inset
+
+ for 
+\begin_inset Formula $m\in\mathcal{M}$
+\end_inset
+
+ and 
+\begin_inset Formula $t\in\mathcal{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Constraints:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $s_{m,t}$
+\end_inset
+
+ is zero when task 
+\begin_inset Formula $t\in\mathcal{T}$
+\end_inset
+
+ is not scheduled on machine 
+\begin_inset Formula $m\in\mathcal{M}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+s_{m,t}\leq M\,x_{m,t},\qquad\forall m\in\mathcal{M},\forall t\in\mathcal{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The makespace 
+\begin_inset Formula $t_{\max}$
+\end_inset
+
+ is at least the time task 
+\begin_inset Formula $t\in\mathcal{T}$
+\end_inset
+
+ ends:
+\begin_inset Formula 
+\[
+t_{\max}\geq s_{m,t}+p_{t},\qquad\forall m\in\mathcal{M},\forall t\in\mathcal{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $z_{t_{1},t_{2},m}$
+\end_inset
+
+ can only be 
+\begin_inset Formula $1$
+\end_inset
+
+ if both tasks 
+\begin_inset Formula $t_{1}\in\mathcal{T}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{2}\in\mathcal{T}$
+\end_inset
+
+ are scheduled on machine 
+\begin_inset Formula $m\in\mathcal{M}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+z_{t_{1},t_{2},m}\leq x_{m,t_{1}},\qquad\forall t_{1}\in\mathcal{T},\forall m\in\mathcal{M}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+z_{t_{1},t_{2},m}\leq x_{m,t_{2}},\qquad\forall t_{2}\in\mathcal{T},\forall m\in\mathcal{M}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $z_{t_{1},t_{2},m}$
+\end_inset
+
+, then the starting time 
+\begin_inset Formula $s_{m,t_{2}}$
+\end_inset
+
+ of the task 
+\begin_inset Formula $t_{2}\in\mathcal{T}$
+\end_inset
+
+ must be at least that 
+\begin_inset Formula $s_{m,t_{1}}$
+\end_inset
+
+ of the task 
+\begin_inset Formula $t_{1}\in\mathcal{T}$
+\end_inset
+
+ plus its processing time 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+M\cdot\left(1-z_{t_{1},t_{2},m}\right)+s_{m,t_{2}}\geq s_{m,t_{1}}+p_{t_{1}},\qquad\forall t_{1}\in\mathcal{T},\forall t_{2}\in\mathcal{T},\forall m\in\mathcal{M}
+\]
+
+\end_inset
+
+This is correct, because: if 
+\begin_inset Formula $z_{t_{1},t_{2},m}=1$
+\end_inset
+
+, then the constraint reduces to 
+\begin_inset Formula $s_{m,t_{2}}\geq s_{m,t_{1}}+p_{t_{1}}$
+\end_inset
+
+; otherwise, if 
+\begin_inset Formula $z_{t_{1},t_{2},m}=0$
+\end_inset
+
+, the constraint is equivalent to 
+\begin_inset Formula $M\geq s_{m,t_{1}}+p_{t_{1}}$
+\end_inset
+
+, where 
+\begin_inset Formula $M$
+\end_inset
+
+ is the largest possible value of any end time 
+\begin_inset Formula $s_{m,t}+p_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Objective:
+\begin_inset Formula 
+\[
+\min t_{\max}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Solution for private cloud scheduling
+\end_layout
+
+\begin_layout Standard
+Variables:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{m,t}=1$
+\end_inset
+
+ if task 
+\begin_inset Formula $t\in\mathcal{T}$
+\end_inset
+
+ is scheduled on machine 
+\begin_inset Formula $m\in\mathcal{M}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\ell_{m}\in\mathbb{R}^{+}$
+\end_inset
+
+: load of machine 
+\begin_inset Formula $m\in\mathcal{M}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\ell_{\max}\in\mathbb{R}^{+}$
+\end_inset
+
+: maximum load over the cluster
+\end_layout
+
+\begin_layout Standard
+Set:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+: the set of tasks
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+: the set of machines
+\end_layout
+
+\begin_layout Standard
+Data:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r_{t}\in\mathbb{R}^{+}$
+\end_inset
+
+: resource usage of task 
+\begin_inset Formula $t\in\mathcal{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Constraints:
+\end_layout
+
+\begin_layout Itemize
+Each task must be scheduled exactly once:
+\begin_inset Formula 
+\[
+\sum_{m\in\mathcal{M}}x_{m,t}=1,\qquad\forall t\in\mathcal{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The load 
+\begin_inset Formula $\ell_{m}$
+\end_inset
+
+ of a machine 
+\begin_inset Formula $m$
+\end_inset
+
+ is defined as the sum of resource usage for tasks scheduled on 
+\begin_inset Formula $m$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\ell_{m}=\sum_{t\in\mathcal{T}}r_{t}\,x_{m,t},\qquad\forall m\in\mathcal{M}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The maximum load is greater than all the loads: 
+\begin_inset Formula 
+\[
+\ell_{\max}\geq\ell_{m},\qquad\forall m\in\mathcal{M}
+\]
+
+\end_inset
+
+(This constraint is not sufficient for 
+\begin_inset Formula $\ell_{\max}$
+\end_inset
+
+ to be equal to 
+\begin_inset Formula $\max_{m\in\mathcal{M}}\ell_{m}$
+\end_inset
+
+: 
+\begin_inset Formula $\ell_{\max}$
+\end_inset
+
+ must also be minimised.)
+\end_layout
+
+\begin_layout Standard
+Objective:
+\begin_inset Formula 
+\[
+\min\ell_{\max}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Julia implementation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+using JuMP
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+N = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+tasks = [100, 50, 25, 25]
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+m = Model()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@variable(m, assign[i in 1:N, t in 1:length(tasks)], Bin)
+\end_layout
+
+\begin_layout Plain Layout
+
+@variable(m, load[i in 1:N] >= 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+@variable(m, max_load >= 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+@constraint(m, task_scheduled_once[t in 1:length(tasks)],
+\end_layout
+
+\begin_layout Plain Layout
+
+            sum(assign[:, t]) == 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@constraint(m, set_sum_load[i in 1:N],
+\end_layout
+
+\begin_layout Plain Layout
+
+            load[i] == sum(tasks[t] * assign[i, t] for t in 1:length(tasks)))
+\end_layout
+
+\begin_layout Plain Layout
+
+@constraint(m, set_max_load[i in 1:N],
+\end_layout
+
+\begin_layout Plain Layout
+
+            max_load >= load[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+@objective(m, Min, max_load)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -31694,7 +32955,11 @@ The
 \end_layout
 
 \begin_layout Enumerate
-Write a constraint programming model to solve the n-queens problem.
+Write a constraint programming model to solve the 
+\begin_inset Formula $N$
+\end_inset
+
+-queens problem.
  Use only the constraint 
 \family typewriter
 alldifferent
@@ -31704,7 +32969,11 @@ alldifferent
 \end_layout
 
 \begin_layout Enumerate
-Write a mixed-integer linear program to solve the n-queens problem.
+Write a mixed-integer linear program to solve the 
+\begin_inset Formula $N$
+\end_inset
+
+-queens problem.
  Compare it to the constraint programming example.
  How many constraints does your model use? What is the domain of the variables?
  
@@ -31719,12 +32988,34 @@ Solve the problem for
  How many solutions exist? 
 \end_layout
 
+\begin_layout Remark
+See also the MIP counterpart: 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Puzzles-N-queens"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Branch solution
 inverted 0
 status open
 
 \begin_layout Solution*
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
 \begin_inset Formula 
 \[
 \begin{array}{ccc}
@@ -31740,6 +33031,21 @@ status open
 
 \end_layout
 
+\begin_layout Enumerate
+The MIP solution is given in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Puzzles-N-queens"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \end_inset
 
 
@@ -31748,10 +33054,10 @@ status open
 \begin_layout Standard
 \begin_inset Branch TA
 inverted 0
-status collapsed
+status open
 
 \begin_layout Subsubsection
-Solution
+CP model
 \end_layout
 
 \begin_layout Standard
@@ -31841,6 +33147,24 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+MIP model
+\end_layout
+
+\begin_layout Standard
+The MIP solution is given in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Modelling-Puzzles-N-queens"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
